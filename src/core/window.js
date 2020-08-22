@@ -1,3 +1,5 @@
+import { Rectangle } from './rectangle';
+
 //-----------------------------------------------------------------------------
 /**
  * The window in the game.

@@ -1,3 +1,4 @@
+import * as Cores from './core';
 import * as Windows from './windows';
 
 function assignToGlobal(module) {
@@ -6,4 +7,5 @@ function assignToGlobal(module) {
   }
 }
 
+assignToGlobal(Cores);
 assignToGlobal(Windows);

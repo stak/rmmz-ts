@@ -8,13 +8,13 @@ const scriptUrls = [
     "js/libs/localforage.min.js",
     "js/libs/effekseer.min.js",
     "js/libs/vorbisdecoder.js",
-    "js/rmmz_core.js",
+    "js/bundle.js",
+    // "js/rmmz_core.js",
     "js/rmmz_managers.js",
     "js/rmmz_objects.js",
     "js/rmmz_scenes.js",
     "js/rmmz_sprites.js",
     // "js/rmmz_windows.js",
-    "js/bundle.js",
     "js/plugins.js"
 ];
 const effekseerWasmUrl = "js/libs/effekseer.wasm";
