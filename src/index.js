@@ -1,4 +1,6 @@
-import * as Cores from './core';
+import './prototype.js';
+import * as Dom from './dom';
+import * as PixiComponents from './pixi';
 import * as Windows from './windows';
 
 function assignToGlobal(module) {
@@ -7,5 +9,6 @@ function assignToGlobal(module) {
   }
 }
 
-assignToGlobal(Cores);
+assignToGlobal(Dom);
+assignToGlobal(PixiComponents);
 assignToGlobal(Windows);

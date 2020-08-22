@@ -1,4 +1,4 @@
-import { Window } from '../core/window';
+import { Window } from '../pixi/window';
 
 //-----------------------------------------------------------------------------
 // Window_Base
