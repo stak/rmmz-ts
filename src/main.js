@@ -13,7 +13,8 @@ const scriptUrls = [
     "js/rmmz_objects.js",
     "js/rmmz_scenes.js",
     "js/rmmz_sprites.js",
-    "js/rmmz_windows.js",
+    // "js/rmmz_windows.js",
+    "js/bundle.js",
     "js/plugins.js"
 ];
 const effekseerWasmUrl = "js/libs/effekseer.wasm";
