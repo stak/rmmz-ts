@@ -1,0 +1,13 @@
+export { AudioManager } from './audio';
+export { BattleManager } from './battle';
+export { ColorManager } from './color';
+export { ConfigManager } from './config';
+export { DataManager } from './data';
+export { EffectManager } from './effect';
+export { FontManager } from './font';
+export { ImageManager } from './image';
+export { PluginManager } from './plugin';
+export { SceneManager } from './scene';
+export { SoundManager } from './sound';
+export { StorageManager } from './storage';
+export { TextManager } from './text';
