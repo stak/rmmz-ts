@@ -11,7 +11,7 @@ const scriptUrls = [
     "js/bundle.js",
     // "js/rmmz_core.js",
     // "js/rmmz_managers.js",
-    "js/rmmz_objects.js",
+    // "js/rmmz_objects.js",
     "js/rmmz_scenes.js",
     // "js/rmmz_sprites.js",
     // "js/rmmz_windows.js",

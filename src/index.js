@@ -2,6 +2,7 @@ import './prototype.js';
 import * as Dom from './dom';
 import * as PixiComponents from './pixi';
 import * as Managers from './managers';
+import * as Games from './game';
 import * as Sprites from './sprites';
 import * as Windows from './windows';
 
@@ -15,6 +16,7 @@ function assignToGlobal(module) {
   Dom,
   PixiComponents,
   Managers,
+  Games,
   Sprites,
   Windows
 ].map(m => assignToGlobal(m));
