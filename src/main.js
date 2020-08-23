@@ -4,7 +4,7 @@
 
 const scriptUrls = [
     // "js/libs/pixi.js",
-    "js/libs/pako.min.js",
+    // "js/libs/pako.min.js",
     // "js/libs/localforage.min.js",
     "js/libs/effekseer.min.js",
     "js/libs/vorbisdecoder.js",

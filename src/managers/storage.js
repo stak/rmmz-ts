@@ -1,7 +1,6 @@
+import pako from 'pako';
 import localforage from 'localforage';
 import { Utils } from '../dom';
-// pako
-// localForge
 
 //-----------------------------------------------------------------------------
 // StorageManager
