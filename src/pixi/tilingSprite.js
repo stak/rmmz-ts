@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import { Rectangle } from './rectangle';
 import { Point } from './point';
 

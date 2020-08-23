@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import { Scene_Base } from './base';
 import { Sprite, Rectangle } from '../pixi';
 import { Sprite_Button } from '../sprites';

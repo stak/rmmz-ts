@@ -1,4 +1,4 @@
-
+import * as PIXI from 'pixi.js';
 
 export function TilemapLayer() {
   this.initialize(...arguments);

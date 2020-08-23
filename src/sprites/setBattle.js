@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import { Spriteset_Base } from './setBase';
 import { Sprite_Battleback } from './battleback';
 import { Sprite_Actor } from './actor';

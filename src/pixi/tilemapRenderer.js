@@ -1,3 +1,6 @@
+import * as PIXI from 'pixi.js';
+import { MAX_GL_TEXTURES } from './tilemapLayer';
+
 export function TilemapRenderer() {
   this.initialize(...arguments);
 };

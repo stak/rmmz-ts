@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import { TilemapLayer } from './tilemapLayer';
 import { TilemapRenderer } from './tilemapRenderer';
 import { Point } from './point';
