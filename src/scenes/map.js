@@ -1,10 +1,12 @@
 import { Scene_Message } from './message';
+/* avoid circular:
 import { Scene_Battle } from './battle';
 import { Scene_Load } from './load';
 import { Scene_Title } from './title';
 import { Scene_Gameover } from './gameover';
 import { Scene_Menu } from './menu';
 import { Scene_Debug } from './debug';
+*/
 import {
   AudioManager,
   BattleManager,
@@ -105,7 +107,7 @@ Scene_Map.prototype.update = function() {
   this.updateMainMultiply();
   if (this.isSceneChangeOk()) {
       this.updateScene();
-  } else if (SceneManager.isNextScene(Scene_Battle)) {
+  } else if (SceneManager.isNextScene(window.Scene_Battle)) {
       this.updateEncounterEffect();
   }
   this.updateWaitCount();
@@ -143,9 +145,9 @@ Scene_Map.prototype.stop = function() {
   this._mapNameWindow.close();
   if (this.needsSlowFadeOut()) {
       this.startFadeOut(this.slowFadeSpeed(), false);
-  } else if (SceneManager.isNextScene(Scene_Map)) {
+  } else if (SceneManager.isNextScene(window.Scene_Map)) {
       this.fadeOutForTransfer();
-  } else if (SceneManager.isNextScene(Scene_Battle)) {
+  } else if (SceneManager.isNextScene(window.Scene_Battle)) {
       this.launchBattle();
   }
 };
@@ -161,7 +163,7 @@ Scene_Map.prototype.isBusy = function() {
 
 Scene_Map.prototype.terminate = function() {
   Scene_Message.prototype.terminate.call(this);
-  if (!SceneManager.isNextScene(Scene_Battle)) {
+  if (!SceneManager.isNextScene(window.Scene_Battle)) {
       this._spriteset.update();
       this._mapNameWindow.hide();
       this.hideMenuButton();
@@ -172,15 +174,15 @@ Scene_Map.prototype.terminate = function() {
 
 Scene_Map.prototype.needsFadeIn = function() {
   return (
-      SceneManager.isPreviousScene(Scene_Battle) ||
-      SceneManager.isPreviousScene(Scene_Load)
+      SceneManager.isPreviousScene(window.Scene_Battle) ||
+      SceneManager.isPreviousScene(window.Scene_Load)
   );
 };
 
 Scene_Map.prototype.needsSlowFadeOut = function() {
   return (
-      SceneManager.isNextScene(Scene_Title) ||
-      SceneManager.isNextScene(Scene_Gameover)
+      SceneManager.isNextScene(window.Scene_Title) ||
+      SceneManager.isNextScene(window.Scene_Gameover)
   );
 };
 
@@ -324,13 +326,13 @@ Scene_Map.prototype.createMenuButton = function() {
 
 Scene_Map.prototype.updateTransferPlayer = function() {
   if ($gamePlayer.isTransferring()) {
-      SceneManager.goto(Scene_Map);
+      SceneManager.goto(window.Scene_Map);
   }
 };
 
 Scene_Map.prototype.updateEncounter = function() {
   if ($gamePlayer.executeEncounter()) {
-      SceneManager.push(Scene_Battle);
+      SceneManager.push(window.Scene_Battle);
   }
 };
 
@@ -353,7 +355,7 @@ Scene_Map.prototype.isMenuCalled = function() {
 
 Scene_Map.prototype.callMenu = function() {
   SoundManager.playOk();
-  SceneManager.push(Scene_Menu);
+  SceneManager.push(window.Scene_Menu);
   Window_MenuCommand.initCommandPosition();
   $gameTemp.clearDestination();
   this._mapNameWindow.hide();
@@ -362,7 +364,7 @@ Scene_Map.prototype.callMenu = function() {
 
 Scene_Map.prototype.updateCallDebug = function() {
   if (this.isDebugCalled()) {
-      SceneManager.push(Scene_Debug);
+      SceneManager.push(window.Scene_Debug);
   }
 };
 

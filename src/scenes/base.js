@@ -1,7 +1,7 @@
 import { Stage, WindowLayer, ColorFilter } from '../pixi';
 import { SceneManager, AudioManager, DataManager, ImageManager, EffectManager, FontManager } from '../managers';
 import { Graphics } from '../dom';
-import { Scene_Gameover } from './gameover';
+// avoid circular: import { Scene_Gameover } from './gameover';
 import { Window_Base, Window_Selectable } from '../windows';
 
 //-----------------------------------------------------------------------------
@@ -139,7 +139,7 @@ Scene_Base.prototype.popScene = function() {
 
 Scene_Base.prototype.checkGameover = function() {
   if ($gameParty.isAllDead()) {
-      SceneManager.goto(Scene_Gameover);
+      SceneManager.goto(window.Scene_Gameover);
   }
 };
 

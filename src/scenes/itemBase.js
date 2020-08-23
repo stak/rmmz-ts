@@ -1,5 +1,5 @@
 import { Scene_MenuBase } from './menuBase';
-import { Scene_Map } from './map';
+// avoid circular: import { Scene_Map } from './map';
 
 import { Window_MenuActor } from '../windows';
 import { Rectangle } from '../pixi';
@@ -148,6 +148,6 @@ Scene_ItemBase.prototype.applyItem = function() {
 
 Scene_ItemBase.prototype.checkCommonEvent = function() {
   if ($gameTemp.isCommonEventReserved()) {
-      SceneManager.goto(Scene_Map);
+      SceneManager.goto(window.Scene_Map);
   }
 };

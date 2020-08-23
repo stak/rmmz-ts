@@ -1,5 +1,5 @@
 import { Scene_File } from './file';
-import { Scene_Map } from './map';
+// avoid circular: import { Scene_Map } from './map';
 
 import { SceneManager, SoundManager, DataManager, TextManager } from '../managers';
 
@@ -60,7 +60,7 @@ Scene_Load.prototype.onLoadSuccess = function() {
   SoundManager.playLoad();
   this.fadeOutAll();
   this.reloadMapIfUpdated();
-  SceneManager.goto(Scene_Map);
+  SceneManager.goto(window.Scene_Map);
   this._loadSuccess = true;
 };
 

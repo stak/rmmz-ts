@@ -1,5 +1,5 @@
 import { Scene_MenuBase } from './menuBase';
-import { Scene_Title } from './title';
+// avoid circular: import { Scene_Title } from './title';
 
 import { Window_GameEnd, Window_TitleCommand } from '../windows';
 import { SceneManager } from '../managers';
@@ -55,6 +55,6 @@ Scene_GameEnd.prototype.commandWindowRect = function() {
 
 Scene_GameEnd.prototype.commandToTitle = function() {
   this.fadeOutAll();
-  SceneManager.goto(Scene_Title);
+  SceneManager.goto(window.Scene_Title);
   Window_TitleCommand.initCommandPosition();
 };

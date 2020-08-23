@@ -1,5 +1,5 @@
 import { Scene_Base } from './base';
-import { Scene_Title } from './title';
+// avoid circular: import { Scene_Title } from './title';
 
 import { SceneManager, AudioManager, ImageManager } from '../managers';
 import { Input, TouchInput } from '../dom';
@@ -72,5 +72,5 @@ Scene_Gameover.prototype.isTriggered = function() {
 };
 
 Scene_Gameover.prototype.gotoTitle = function() {
-  SceneManager.goto(Scene_Title);
+  SceneManager.goto(window.Scene_Title);
 };

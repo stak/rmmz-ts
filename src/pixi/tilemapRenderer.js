@@ -1,5 +1,3 @@
-import { Tilemap } from './tilemap';
-
 export function TilemapRenderer() {
   this.initialize(...arguments);
 };
@@ -83,7 +81,7 @@ TilemapRenderer.prototype._createShader = function() {
 
 TilemapRenderer.prototype._createInternalTextures = function() {
   this._destroyInternalTextures();
-  for (let i = 0; i < Tilemap.Layer.MAX_GL_TEXTURES; i++) {
+  for (let i = 0; i < MAX_GL_TEXTURES; i++) {
       const baseTexture = new PIXI.BaseRenderTexture();
       baseTexture.resize(2048, 2048);
       baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
@@ -117,7 +115,7 @@ TilemapRenderer.prototype.updateTextures = function(renderer, images) {
 };
 
 TilemapRenderer.prototype.bindTextures = function(renderer) {
-  for (let ti = 0; ti < Tilemap.Layer.MAX_GL_TEXTURES; ti++) {
+  for (let ti = 0; ti < MAX_GL_TEXTURES; ti++) {
       renderer.texture.bind(this._internalTextures[ti], ti);
   }
 };

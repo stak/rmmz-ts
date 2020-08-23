@@ -22,8 +22,8 @@ TilemapLayer.prototype.initialize = function() {
   this._createVao();
 };
 
-TilemapLayer.MAX_GL_TEXTURES = 3;
-TilemapLayer.VERTEX_STRIDE = 9 * 4;
+export const MAX_GL_TEXTURES = TilemapLayer.MAX_GL_TEXTURES = 3;
+export const VERTEX_STRIDE = TilemapLayer.VERTEX_STRIDE = 9 * 4;
 
 TilemapLayer.prototype.destroy = function() {
   if (this._vao) {
