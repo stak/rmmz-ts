@@ -1,3 +1,4 @@
+import localforage from 'localforage';
 import { Utils } from '../dom';
 // pako
 // localForge
