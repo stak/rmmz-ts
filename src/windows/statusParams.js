@@ -1,4 +1,5 @@
 import { Window_StatusBase } from './statusBase';
+import { TextManager, ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_StatusParams

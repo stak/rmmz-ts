@@ -1,5 +1,5 @@
 import { Sprite_Clickable } from './clickable';
-// import { ImageManager } from '../managers';
+import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Picture

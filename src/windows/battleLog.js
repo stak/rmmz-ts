@@ -1,5 +1,7 @@
 import { Window_Base } from './base';
 
+import { DataManager, TextManager, SoundManager } from '../managers';
+
 //-----------------------------------------------------------------------------
 // Window_BattleLog
 //

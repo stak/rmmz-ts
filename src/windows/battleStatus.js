@@ -1,4 +1,5 @@
 import { Window_StatusBase } from './statusBase';
+import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleStatus

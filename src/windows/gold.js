@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Gold

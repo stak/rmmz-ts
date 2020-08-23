@@ -1,4 +1,5 @@
 import { Window_MenuStatus } from './menuStatus';
+import { DataManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MenuActor

@@ -1,4 +1,5 @@
 import { Window_StatusBase } from './statusBase';
+import { ColorManager, TextManager, ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_EquipStatus

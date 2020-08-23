@@ -1,4 +1,5 @@
 import { Window_StatusBase } from './statusBase';
+import { ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_EquipSlot

@@ -1,6 +1,6 @@
 import { TilingSprite } from '../pixi';
 import { Graphics } from '../dom';
-// import { ImageManager, BattleManager } from '../managers';
+import { ImageManager, BattleManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Battleback

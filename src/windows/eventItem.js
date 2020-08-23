@@ -1,4 +1,5 @@
 import { Window_ItemList } from './itemList';
+import { ConfigManager, DataManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_EventItem

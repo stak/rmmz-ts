@@ -1,5 +1,5 @@
 import { Sprite } from '../pixi';
-// import { ImageManager } from '../managers';
+import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_StateOverlay

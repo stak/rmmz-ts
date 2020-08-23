@@ -1,4 +1,5 @@
 import { Window_Scrollable } from './scrollable';
+import { ColorManager, SoundManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Selectable

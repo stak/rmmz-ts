@@ -1,5 +1,5 @@
 import { Sprite, ScreenSprite } from '../pixi';
-// import { AudioManager, ImageManager } from '../managers';
+import { AudioManager, ImageManager } from '../managers';
 
 
 //-----------------------------------------------------------------------------

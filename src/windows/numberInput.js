@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { ConfigManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_NumberInput

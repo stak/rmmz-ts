@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { SoundManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_NameInput

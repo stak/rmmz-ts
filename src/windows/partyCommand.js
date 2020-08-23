@@ -1,4 +1,5 @@
 import { Window_Command } from './command';
+import { TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_PartyCommand

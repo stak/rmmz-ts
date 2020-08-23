@@ -1,4 +1,5 @@
 import { Window_Base } from './base';
+import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Message

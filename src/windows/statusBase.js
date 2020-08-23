@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { BattleManager, ImageManager, ColorManager, TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_StatusBase

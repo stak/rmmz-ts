@@ -1,4 +1,5 @@
 import { Window_Command } from './command';
+import { TextManager, ConfigManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Options

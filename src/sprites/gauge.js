@@ -1,5 +1,5 @@
 import { Sprite, Bitmap } from '../pixi';
-// import { TextManager, ColorManager } from '../managers';
+import { TextManager, ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Gauge

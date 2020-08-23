@@ -1,4 +1,5 @@
 import { Window_Base } from './base';
+import { ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MapName

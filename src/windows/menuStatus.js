@@ -1,4 +1,5 @@
 import { Window_StatusBase } from './statusBase';
+import { ImageManager, ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MenuStatus

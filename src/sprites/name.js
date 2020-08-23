@@ -1,5 +1,5 @@
 import { Sprite, Bitmap } from '../pixi';
-// import { ColorManager } from '../managers';
+import { ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Name

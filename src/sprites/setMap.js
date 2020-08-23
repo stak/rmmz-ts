@@ -3,7 +3,7 @@ import { Sprite_Character } from './character';
 import { Sprite_Destination } from './destination';
 import { Sprite_Balloon } from './balloon';
 import { Sprite, TilingSprite, Tilemap, Weather } from '../pixi';
-// import { ImageManager } from '../managers';
+import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Spriteset_Map

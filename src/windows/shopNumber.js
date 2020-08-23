@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { TextManager, ConfigManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ShopNumber

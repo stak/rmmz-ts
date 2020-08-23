@@ -1,5 +1,5 @@
 import { Sprite } from '../pixi';
-// import { ImageManager } from '../managers/image';
+import { ImageManager } from '../managers/image';
 
 //-----------------------------------------------------------------------------
 // Sprite_Character

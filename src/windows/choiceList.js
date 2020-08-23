@@ -1,4 +1,5 @@
 import { Window_Command } from './command';
+import { ConfigManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ChoiceList

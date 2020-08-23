@@ -1,5 +1,12 @@
 import { Window } from '../pixi/window';
 
+import {
+  ColorManager,
+  TextManager,
+  ImageManager,
+  SoundManager,
+} from '../managers';
+
 //-----------------------------------------------------------------------------
 // Window_Base
 //

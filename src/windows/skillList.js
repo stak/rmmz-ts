@@ -1,4 +1,5 @@
 import { Window_Selectable } from './selectable';
+import { ColorManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_SkillList

@@ -1,4 +1,5 @@
 import { Window_Command } from './command';
+import { DataManager, TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_TitleCommand
