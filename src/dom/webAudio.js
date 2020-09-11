@@ -770,7 +770,9 @@ WebAudio.prototype._readLoopComments = function(arrayBuffer) {
           while (segments[0] === 255) {
               packetSize += segments.shift();
           }
-          packetSize += segments.shift();
+          if (segments.length > 0) {
+              packetSize += segments.shift();
+          }
           packets.push(packetSize);
       }
       let vorbisHeaderFound = false;

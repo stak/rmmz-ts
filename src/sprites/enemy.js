@@ -225,7 +225,7 @@ Sprite_Enemy.prototype.revertToNormal = function() {
 };
 
 Sprite_Enemy.prototype.updateWhiten = function() {
-  const alpha = 128 - (16 - this._effectDuration) * 10;
+  const alpha = 128 - (16 - this._effectDuration) * 8;
   this.setBlendColor([255, 255, 255, alpha]);
 };
 
