@@ -1,6 +1,6 @@
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
-// const WriteFilePlugin = require("write-file-webpack-plugin");
+const WriteFilePlugin = require("write-file-webpack-plugin");
 const path = require('path');
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
         { from: "src/libs", to: path.resolve(__dirname, "project/js/libs") }
       ]
     }),
-    // new WriteFilePlugin(),
+    new WriteFilePlugin(),
 
     new CircularDependencyPlugin({
       exclude: /node_modules/,
@@ -30,5 +30,11 @@ module.exports = {
       allowAsyncCycles: false,
       cwd: process.cwd(),
     })
-  ]
+  ],
+
+  devServer: {
+    contentBase: path.resolve(__dirname, 'project'),
+    watchContentBase: true,
+    port: 3000,
+  }
 };
