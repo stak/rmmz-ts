@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   target: 'web',
   node: {
     fs: 'empty'
@@ -14,6 +14,21 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'project/js'),
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+      },
+    ],
+  },
+  resolve: {
+    extensions: [
+      '.ts', '.js',
+    ],
+  },
+
   plugins: [
     new CopyPlugin({
       patterns: [

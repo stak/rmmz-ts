@@ -7,7 +7,7 @@ import * as Scenes from './scenes';
 import * as Sprites from './sprites';
 import * as Windows from './windows';
 
-function assignToGlobal(module) {
+function assignToGlobal(module: object): void {
   for (let k of Object.keys(module)) {
     global[k] = module[k];
   }
