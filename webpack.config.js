@@ -19,7 +19,8 @@ module.exports = {
       patterns: [
         { from: "src/main.js", to: path.resolve(__dirname, "project/js") },
         { from: "src/plugins.js", to: path.resolve(__dirname, "project/js") },
-        { from: "src/libs", to: path.resolve(__dirname, "project/js/libs") }
+        { from: "src/libs", to: path.resolve(__dirname, "project/js/libs") },
+        { from: "src/plugins", to: path.resolve(__dirname, "project/js/plugins") }
       ]
     }),
     new WriteFilePlugin(),
