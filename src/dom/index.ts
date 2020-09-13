@@ -1,3 +1,4 @@
+export { FPSCounter } from './fpsCounter';
 export { Graphics } from './graphics';
 export { Input } from './input';
 export { JsonEx } from './jsonEx';
