@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import { Utils } from './utils';
-import { Video } from './video';
+import { Utils } from './';
+import { Video } from './';
 
 //-----------------------------------------------------------------------------
 /**

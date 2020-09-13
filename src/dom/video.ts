@@ -1,4 +1,4 @@
-import { Graphics } from './graphics';
+import { Graphics } from './';
 
 //-----------------------------------------------------------------------------
 /**
@@ -37,6 +37,7 @@ Video.resize = function(width, height) {
       this._element.style.height = height + "px";
   }
 };
+export const Video_resize = Video.resize;
 
 /**
 * Starts playback of a video.

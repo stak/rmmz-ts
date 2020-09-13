@@ -41,7 +41,16 @@ module.exports = {
     new WriteFilePlugin(),
 
     new CircularDependencyPlugin({
-      exclude: /node_modules/,
+      onDetected({ module: webpackModuleRecord, paths, compilation }) {
+        // exclude rules
+        if (paths.some(path => path.includes('node_modules'))) return;
+        if (paths.some(path => path.includes('/index.ts'))) {
+          if (paths.length === 3 && paths[0] === paths[2]) {
+            return;
+          }
+        }
+        compilation.errors.push(new Error(paths.join(' -> ')))
+      },
       failOnError: true,
       allowAsyncCycles: false,
       cwd: process.cwd(),
