@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/stak/rmmz-ts#readme",
   "devDependencies": {
+    "@types/css-font-loading-module": "0.0.4",
+    "@types/nw.js": "^0.13.9",
     "circular-dependency-plugin": "^5.2.0",
     "copy-webpack-plugin": "^6.1.0",
     "ts-loader": "^8.0.2",

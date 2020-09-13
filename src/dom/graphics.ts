@@ -1,4 +1,6 @@
 import * as PIXI from 'pixi.js';
+import { Utils } from './utils';
+import { Video } from './video';
 
 //-----------------------------------------------------------------------------
 /**
@@ -465,7 +467,7 @@ Graphics._disableContextMenu = function() {
   const elements = document.body.getElementsByTagName("*");
   const oncontextmenu = () => false;
   for (const element of elements) {
-      element.oncontextmenu = oncontextmenu;
+      (element as HTMLElement).oncontextmenu = oncontextmenu;
   }
 };
 
@@ -545,7 +547,7 @@ Graphics._requestFullScreen = function() {
   } else if (element.mozRequestFullScreen) {
       element.mozRequestFullScreen();
   } else if (element.webkitRequestFullScreen) {
-      element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      element.webkitRequestFullScreen((Element as any).ALLOW_KEYBOARD_INPUT);
   }
 };
 
@@ -581,7 +583,7 @@ Graphics._setupPixi = function() {
 Graphics._createEffekseerContext = function() {
   if (this._app && window.effekseer) {
       try {
-          this._effekseer = effekseer.createContext();
+          this._effekseer = window.effekseer.createContext();
           if (this._effekseer) {
               this._effekseer.init(this._app.renderer.gl);
           }

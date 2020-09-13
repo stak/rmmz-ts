@@ -69,7 +69,7 @@ JsonEx._decode = function(value) {
   const type = Object.prototype.toString.call(value);
   if (type === "[object Object]" || type === "[object Array]") {
       if (value["@"]) {
-          const constructor = window[value["@"]];
+          const constructor = window[value["@"] as string];
           if (constructor) {
               Object.setPrototypeOf(value, constructor.prototype);
           }

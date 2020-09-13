@@ -167,6 +167,7 @@ Utils.canUseIndexedDB = function() {
 *
 * @returns {boolean} True if the browser can play ogg files.
 */
+Utils._audioElement = undefined as HTMLAudioElement
 Utils.canPlayOgg = function() {
   if (!Utils._audioElement) {
       Utils._audioElement = document.createElement("audio");
@@ -182,6 +183,7 @@ Utils.canPlayOgg = function() {
 *
 * @returns {boolean} True if the browser can play webm files.
 */
+Utils._videoElement = undefined as HTMLVideoElement
 Utils.canPlayWebm = function() {
   if (!Utils._videoElement) {
       Utils._videoElement = document.createElement("video");

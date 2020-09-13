@@ -1,3 +1,5 @@
+import { Graphics } from './graphics';
+
 //-----------------------------------------------------------------------------
 /**
  * The static class that handles input data from the mouse and touchscreen.

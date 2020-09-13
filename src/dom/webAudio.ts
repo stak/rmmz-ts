@@ -1,3 +1,5 @@
+import { Utils } from './utils';
+
 //-----------------------------------------------------------------------------
 /**
  * The audio object of Web Audio API.
@@ -7,6 +9,11 @@
  */
 export function WebAudio() {
   this.initialize(...arguments);
+}
+
+export namespace WebAudio {
+  export let _context: AudioContext;
+  export let _masterGainNode: GainNode;
 }
 
 WebAudio.prototype.initialize = function(url) {
@@ -437,7 +444,7 @@ WebAudio.prototype._startXhrLoading = function(url) {
 };
 
 WebAudio.prototype._startFetching = function(url) {
-  const options = { credentials: "same-origin" };
+  const options: RequestInit = { credentials: "same-origin" };
   fetch(url, options)
       .then(response => this._onFetch(response))
       .catch(() => this._onError());
