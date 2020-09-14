@@ -8,7 +8,7 @@ import { Utils } from './';
  * @param {string} url - The url of the audio file.
  */
 export class WebAudio {
-  constructor() {
+  constructor(url?: string) {
     this.initialize(...arguments);
   }
 
@@ -132,8 +132,9 @@ export class WebAudio {
     }
   };
 
-
-  _url = ''
+  name = '';
+  frameCount = 0;
+  _url = '';
   _data: Uint8Array | null = null;
   _fetchedSize = 0;
   _fetchedData: Uint8Array[] = [];
@@ -295,7 +296,7 @@ export class WebAudio {
   * @param {boolean} loop - Whether the audio data play in a loop.
   * @param {number} offset - The start position to play in seconds.
   */
-  play = (loop: boolean, offset: number): void => {
+  play = (loop: boolean, offset?: number): void => {
     this._loop = loop;
     if (this.isReady()) {
         offset = offset || 0;
