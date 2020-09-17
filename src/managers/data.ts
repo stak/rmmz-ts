@@ -54,22 +54,21 @@ type GameObject = {
 }
 
 // TODO: typing
-export const $dataActors: any = null;
-export const $dataClasses: any = null;
-export const $dataSkills: any = null;
-export const $dataItems: any = null;
-export const $dataWeapons: any = null;
-export const $dataArmors: any = null;
-export const $dataEnemies: any = null;
-export const $dataTroops: any = null;
-export const $dataStates: any = null;
-export const $dataAnimations: any = null;
-export const $dataTilesets: any = null;
-export const $dataCommonEvents: any = null;
-export const $dataSystem: any = null;
-export const $dataMapInfos: any = null;
+export let $dataActors: any = null;
+export let $dataClasses: any = null;
+export let $dataSkills: any = null;
+export let $dataItems: any = null;
+export let $dataWeapons: any = null;
+export let $dataArmors: any = null;
+export let $dataEnemies: any = null;
+export let $dataTroops: any = null;
+export let $dataStates: any = null;
+export let $dataAnimations: any = null;
+export let $dataTilesets: any = null;
+export let $dataCommonEvents: any = null;
+export let $dataSystem: any = null;
+export let $dataMapInfos: any = null;
 export let $dataMap: any = null;
-
 export let $gameTemp: Game_Temp = null;
 export let $gameSystem: Game_System = null;
 export let $gameScreen: Game_Screen = null;
@@ -83,8 +82,167 @@ export let $gameParty: Game_Party = null;
 export let $gameTroop: Game_Troop = null;
 export let $gameMap: Game_Map = null;
 export let $gamePlayer: Game_Player = null;
+export let $testEvent: any = null;
 
-export const $testEvent: any = null;
+// FIXME: is there any trick to do this like Reflection?
+function setModuleVars(name: string, value: any): void {
+  global[name] = value;
+  switch (name) {
+    case '$dataActors':
+      $dataActors = value;
+      break;
+    case '$dataClasses':
+      $dataClasses = value;
+      break;
+    case '$dataSkills':
+      $dataSkills = value;
+      break;
+    case '$dataItems':
+      $dataItems = value;
+      break;
+    case '$dataWeapons':
+      $dataWeapons = value;
+      break;
+    case '$dataArmors':
+      $dataArmors = value;
+      break;
+    case '$dataEnemies':
+      $dataEnemies = value;
+      break;
+    case '$dataTroops':
+      $dataTroops = value;
+      break;
+    case '$dataStates':
+      $dataStates = value;
+      break;
+    case '$dataAnimations':
+      $dataAnimations = value;
+      break;
+    case '$dataTilesets':
+      $dataTilesets = value;
+      break;
+    case '$dataCommonEvents':
+      $dataCommonEvents = value;
+      break;
+    case '$dataSystem':
+      $dataSystem = value;
+      break;
+    case '$dataMapInfos':
+      $dataMapInfos = value;
+      break;
+    case '$dataMap':
+      $dataMap = value;
+      break;
+    case '$gameTemp':
+      $gameTemp = value;
+      break;
+    case '$gameSystem':
+      $gameSystem = value;
+      break;
+    case '$gameScreen':
+      $gameScreen = value;
+      break;
+    case '$gameTimer':
+      $gameTimer = value;
+      break;
+    case '$gameMessage':
+      $gameMessage = value;
+      break;
+    case '$gameSwitches':
+      $gameSwitches = value;
+      break;
+    case '$gameVariables':
+      $gameVariables = value;
+      break;
+    case '$gameSelfSwitches':
+      $gameSelfSwitches = value;
+      break;
+    case '$gameActors':
+      $gameActors = value;
+      break;
+    case '$gameParty':
+      $gameParty = value;
+      break;
+    case '$gameTroop':
+      $gameTroop = value;
+      break;
+    case '$gameMap':
+      $gameMap = value;
+      break;
+    case '$gamePlayer':
+      $gamePlayer = value;
+      break;
+    case '$testEvent':
+      $testEvent = value;
+      break;
+    default:
+      throw new Error('unknown global variables: ' + name);
+  }
+}
+function getModuleVars(name: string): any {
+  switch (name) {
+    case '$dataActors':
+      return $dataActors;
+    case '$dataClasses':
+      return $dataClasses;
+    case '$dataSkills':
+      return $dataSkills;
+    case '$dataItems':
+      return $dataItems;
+    case '$dataWeapons':
+      return $dataWeapons;
+    case '$dataArmors':
+      return $dataArmors;
+    case '$dataEnemies':
+      return $dataEnemies;
+    case '$dataTroops':
+      return $dataTroops;
+    case '$dataStates':
+      return $dataStates;
+    case '$dataAnimations':
+      return $dataAnimations;
+    case '$dataTilesets':
+      return $dataTilesets;
+    case '$dataCommonEvents':
+      return $dataCommonEvents;
+    case '$dataSystem':
+      return $dataSystem;
+    case '$dataMapInfos':
+      return $dataMapInfos;
+    case '$dataMap':
+      return $dataMap;
+    case '$gameTemp':
+      return $gameTemp;
+    case '$gameSystem':
+      return $gameSystem;
+    case '$gameScreen':
+      return $gameScreen;
+    case '$gameTimer':
+      return $gameTimer;
+    case '$gameMessage':
+      return $gameMessage;
+    case '$gameSwitches':
+      return $gameSwitches;
+    case '$gameVariables':
+      return $gameVariables;
+    case '$gameSelfSwitches':
+      return $gameSelfSwitches;
+    case '$gameActors':
+      return $gameActors;
+    case '$gameParty':
+      return $gameParty;
+    case '$gameTroop':
+      return $gameTroop;
+    case '$gameMap':
+      return $gameMap;
+    case '$gamePlayer':
+      return $gamePlayer;
+    case '$testEvent':
+      return $testEvent;
+    default:
+      throw new Error('unknown global variables: ' + name);
+  }
+}
 
 
 //-----------------------------------------------------------------------------
@@ -161,7 +319,7 @@ export class DataManager {
   static loadDataFile(name: string, src: string): void {
     const xhr = new XMLHttpRequest();
     const url = "data/" + src;
-    window[name] = null;
+    setModuleVars(name, null);
     xhr.open("GET", url);
     xhr.overrideMimeType("application/json");
     xhr.onload = () => this.onXhrLoad(xhr, name, src, url);
@@ -171,8 +329,8 @@ export class DataManager {
 
   static onXhrLoad(xhr: XMLHttpRequest, name: string, src: string, url: string): void {
     if (xhr.status < 400) {
-        window[name] = JSON.parse(xhr.responseText);
-        this.onLoad(window[name]);
+        setModuleVars(name, JSON.parse(xhr.responseText));
+        this.onLoad(getModuleVars(name));
     } else {
         this.onXhrError(name, src, url);
     }
@@ -186,7 +344,7 @@ export class DataManager {
   static isDatabaseLoaded(): boolean {
     this.checkError();
     for (const databaseFile of this._databaseFiles) {
-        if (!window[databaseFile.name]) {
+        if (!getModuleVars(databaseFile.name)) {
             return false;
         }
     }
@@ -291,19 +449,19 @@ export class DataManager {
   };
 
   static createGameObjects(): void {
-    $gameTemp = new Game_Temp();
-    $gameSystem = new Game_System();
-    $gameScreen = new Game_Screen();
-    $gameTimer = new Game_Timer();
-    $gameMessage = new Game_Message();
-    $gameSwitches = new Game_Switches();
-    $gameVariables = new Game_Variables();
-    $gameSelfSwitches = new Game_SelfSwitches();
-    $gameActors = new Game_Actors();
-    $gameParty = new Game_Party();
-    $gameTroop = new Game_Troop();
-    $gameMap = new Game_Map();
-    $gamePlayer = new Game_Player();
+    setModuleVars('$gameTemp', new Game_Temp());
+    setModuleVars('$gameSystem', new Game_System());
+    setModuleVars('$gameScreen', new Game_Screen());
+    setModuleVars('$gameTimer', new Game_Timer());
+    setModuleVars('$gameMessage', new Game_Message());
+    setModuleVars('$gameSwitches', new Game_Switches());
+    setModuleVars('$gameVariables', new Game_Variables());
+    setModuleVars('$gameSelfSwitches', new Game_SelfSwitches());
+    setModuleVars('$gameActors', new Game_Actors());
+    setModuleVars('$gameParty', new Game_Party());
+    setModuleVars('$gameTroop', new Game_Troop());
+    setModuleVars('$gameMap', new Game_Map());
+    setModuleVars('$gamePlayer', new Game_Player());
   };
 
   static setupNewGame(): void {
@@ -455,16 +613,16 @@ export class DataManager {
   };
 
   static extractSaveContents(contents: SaveContents): void {
-    $gameSystem = contents.system;
-    $gameScreen = contents.screen;
-    $gameTimer = contents.timer;
-    $gameSwitches = contents.switches;
-    $gameVariables = contents.variables;
-    $gameSelfSwitches = contents.selfSwitches;
-    $gameActors = contents.actors;
-    $gameParty = contents.party;
-    $gameMap = contents.map;
-    $gamePlayer = contents.player;
+    setModuleVars('$gameSystem', contents.system);
+    setModuleVars('$gameScreen', contents.screen);
+    setModuleVars('$gameTimer', contents.timer);
+    setModuleVars('$gameSwitches', contents.switches);
+    setModuleVars('$gameVariables', contents.variables);
+    setModuleVars('$gameSelfSwitches', contents.selfSwitches);
+    setModuleVars('$gameActors', contents.actors);
+    setModuleVars('$gameParty', contents.party);
+    setModuleVars('$gameMap', contents.map);
+    setModuleVars('$gamePlayer', contents.player);
   };
 
   static correctDataErrors(): void {
