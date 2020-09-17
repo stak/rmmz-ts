@@ -25,11 +25,11 @@ export class AudioManager {
   static _currentBgm: AudioParams | null = null;
   static _currentBgs: AudioParams | null = null;
   static _currentMe: AudioParams | null = null;
-  static _bgmBuffer = null;
-  static _bgsBuffer = null;
-  static _meBuffer = null;
-  static _seBuffers = [];
-  static _staticBuffers = [];
+  static _bgmBuffer: WebAudio | null = null;
+  static _bgsBuffer: WebAudio | null = null;
+  static _meBuffer: WebAudio | null = null;
+  static _seBuffers: Array<WebAudio> = [];
+  static _staticBuffers: Array<WebAudio> = [];
   static _replayFadeTime = 0.5;
   static _path = "audio/";
 
@@ -38,7 +38,7 @@ export class AudioManager {
   }
   static set bgmVolume(value: number) {
     this._bgmVolume = value;
-    this.updateBgmParameters(this._currentBgm);
+    this.updateBgmParameters(this._currentBgm!);
   }
 
   static get bgsVolume(): number {
@@ -46,7 +46,7 @@ export class AudioManager {
   }
   static set bgsVolume(value: number) {
     this._bgsVolume = value;
-    this.updateBgsParameters(this._currentBgs);
+    this.updateBgsParameters(this._currentBgs!);
   }
 
   static get meVolume(): number {
@@ -54,7 +54,7 @@ export class AudioManager {
   }
   static set meVolume(value: number) {
     this._meVolume = value;
-    this.updateMeParameters(this._currentMe);
+    this.updateMeParameters(this._currentMe!);
   }
 
   static get seVolume(): number {
@@ -84,7 +84,7 @@ export class AudioManager {
     if (this.isCurrentBgm(bgm)) {
         this.updateBgmParameters(bgm);
     } else {
-        this.playBgm(bgm, bgm.pos);
+        this.playBgm(bgm, bgm.pos!);
         if (this._bgmBuffer) {
             this._bgmBuffer.fadeIn(this._replayFadeTime);
         }
@@ -100,7 +100,7 @@ export class AudioManager {
   };
 
   static updateBgmParameters(bgm: AudioParams): void {
-    this.updateBufferParameters(this._bgmBuffer, this._bgmVolume, bgm);
+    this.updateBufferParameters(this._bgmBuffer!, this._bgmVolume, bgm);
   };
 
   static updateCurrentBgm(bgm: AudioParams, pos: number): void {
@@ -152,7 +152,7 @@ export class AudioManager {
     if (this.isCurrentBgs(bgs)) {
         this.updateBgsParameters(bgs);
     } else {
-        this.playBgs(bgs, bgs.pos);
+        this.playBgs(bgs, bgs.pos!);
         if (this._bgsBuffer) {
             this._bgsBuffer.fadeIn(this._replayFadeTime);
         }
@@ -168,7 +168,7 @@ export class AudioManager {
   };
 
   static updateBgsParameters(bgs: AudioParams): void {
-    this.updateBufferParameters(this._bgsBuffer, this._bgsVolume, bgs);
+    this.updateBufferParameters(this._bgsBuffer!, this._bgsVolume, bgs);
   };
 
   static updateCurrentBgs(bgs: AudioParams, pos: number): void {
@@ -217,7 +217,7 @@ export class AudioManager {
   };
 
   static updateMeParameters(me: AudioParams): void {
-    this.updateBufferParameters(this._meBuffer, this._meVolume, me);
+    this.updateBufferParameters(this._meBuffer!, this._meVolume, me);
   };
 
   static fadeOutMe(duration: number): void {
@@ -358,7 +358,7 @@ export class AudioManager {
     return buffer;
   };
 
-  static updateBufferParameters(buffer: WebAudio, configVolume, audio): void {
+  static updateBufferParameters(buffer: WebAudio, configVolume: number, audio: AudioParams): void {
     if (buffer && audio) {
         buffer.volume = (configVolume * (audio.volume || 0)) / 10000;
         buffer.pitch = (audio.pitch || 0) / 100;

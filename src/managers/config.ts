@@ -56,7 +56,7 @@ export class ConfigManager {
 
   static load(): void {
     StorageManager.loadObject("config")
-        .then(config => this.applyData(config || {}))
+        .then((config: Config) => this.applyData(config || {}))
         .catch(() => 0)
         .then(() => {
             this._isLoaded = true;
@@ -98,7 +98,7 @@ export class ConfigManager {
 
   static readFlag(config: Config, name: string, defaultValue: boolean): boolean {
     if (name in config) {
-        return !!config[name];
+        return !!(config as any)[name];
     } else {
         return defaultValue;
     }
@@ -106,7 +106,7 @@ export class ConfigManager {
 
   static readVolume(config: Config, name: string): number {
     if (name in config) {
-        return Number(config[name]).clamp(0, 100);
+        return Number((config as any)[name]).clamp(0, 100);
     } else {
         return 100;
     }

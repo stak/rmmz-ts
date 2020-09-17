@@ -49,7 +49,7 @@ type GameObject = {
   // only MapXXX.json object has these props
   data?: Array<number>
   events?: GameObject
-  meta?: object
+  meta?: {[key: string]: any}
   note?: string
 }
 
@@ -86,7 +86,7 @@ export let $testEvent: any = null;
 
 // FIXME: is there any trick to do this like Reflection?
 function setModuleVars(name: string, value: any): void {
-  global[name] = value;
+  (window as any)[name] = value;
   switch (name) {
     case '$dataActors':
       $dataActors = value;
@@ -277,7 +277,7 @@ export class DataManager {
 
   static loadGlobalInfo(): void {
     StorageManager.loadObject("global")
-        .then(globalInfo => {
+        .then((globalInfo: SaveFileInfo[]) => {
             this._globalInfo = globalInfo;
             this.removeInvalidGlobalInfo();
             return 0;
@@ -289,10 +289,10 @@ export class DataManager {
 
   static removeInvalidGlobalInfo(): void {
     const globalInfo = this._globalInfo;
-    for (const info of globalInfo) {
-        const savefileId = globalInfo.indexOf(info);
+    for (const info of globalInfo!) {
+        const savefileId = globalInfo!.indexOf(info);
         if (!this.savefileExists(savefileId)) {
-            delete globalInfo[savefileId];
+            delete globalInfo![savefileId];
         }
     }
   };
@@ -377,7 +377,7 @@ export class DataManager {
   static onLoad(object: GameObject): void {
     if (this.isMapObject(object)) {
         this.extractMetadata(object);
-        this.extractArrayMetadata(object.events);
+        this.extractArrayMetadata(object.events!);
     } else {
         this.extractArrayMetadata(object);
     }
@@ -401,7 +401,7 @@ export class DataManager {
     const regExp = /<([^<>:]+)(:?)([^>]*)>/g;
     data.meta = {};
     for (;;) {
-        const match = regExp.exec(data.note);
+        const match = regExp.exec(data.note!);
         if (match) {
             if (match[2] === ":") {
                 data.meta[match[1]] = match[3];
@@ -418,9 +418,9 @@ export class DataManager {
     if (this._errors.length > 0) {
         const error = this._errors.shift();
         const retry = () => {
-            this.loadDataFile(error.name, error.src);
+            this.loadDataFile(error!.name, error!.src);
         };
-        throw ["LoadError", error.url, retry];
+        throw ["LoadError", error!.url, retry];
     }
   };
 
@@ -489,38 +489,38 @@ export class DataManager {
   };
 
   static isAnySavefileExists(): boolean {
-    return this._globalInfo.some(x => x);
+    return this._globalInfo!.some(x => x);
   };
 
   static latestSavefileId(): number {
     const globalInfo = this._globalInfo;
-    const validInfo = globalInfo.slice(1).filter(x => x);
+    const validInfo = globalInfo!.slice(1).filter(x => x);
     const latest = Math.max(...validInfo.map(x => x.timestamp));
-    const index = globalInfo.findIndex(x => x && x.timestamp === latest);
+    const index = globalInfo!.findIndex(x => x && x.timestamp === latest);
     return index > 0 ? index : 0;
   };
 
   static earliestSavefileId(): number {
     const globalInfo = this._globalInfo;
-    const validInfo = globalInfo.slice(1).filter(x => x);
+    const validInfo = globalInfo!.slice(1).filter(x => x);
     const earliest = Math.min(...validInfo.map(x => x.timestamp));
-    const index = globalInfo.findIndex(x => x && x.timestamp === earliest);
+    const index = globalInfo!.findIndex(x => x && x.timestamp === earliest);
     return index > 0 ? index : 0;
   };
 
   static emptySavefileId(): number {
     const globalInfo = this._globalInfo;
     const maxSavefiles = this.maxSavefiles();
-    if (globalInfo.length < maxSavefiles) {
-        return Math.max(1, globalInfo.length);
+    if (globalInfo!.length < maxSavefiles) {
+        return Math.max(1, globalInfo!.length);
     } else {
-        const index = globalInfo.slice(1).findIndex(x => !x);
+        const index = globalInfo!.slice(1).findIndex(x => !x);
         return index >= 0 ? index + 1 : -1;
     }
   };
 
   static loadAllSavefileImages(): void {
-    for (const info of this._globalInfo.filter(x => x)) {
+    for (const info of this._globalInfo!.filter(x => x)) {
         this.loadSavefileImages(info);
     }
   };
@@ -542,9 +542,9 @@ export class DataManager {
     return 20;
   };
 
-  static savefileInfo(savefileId: number): SaveFileInfo {
+  static savefileInfo(savefileId: number): SaveFileInfo | null {
     const globalInfo = this._globalInfo;
-    return globalInfo[savefileId] ? globalInfo[savefileId] : null;
+    return globalInfo![savefileId] ? globalInfo![savefileId] : null;
   };
 
   static savefileExists(savefileId: number): boolean {
@@ -556,7 +556,7 @@ export class DataManager {
     const contents = this.makeSaveContents();
     const saveName = this.makeSavename(savefileId);
     return StorageManager.saveObject(saveName, contents).then(() => {
-        this._globalInfo[savefileId] = this.makeSavefileInfo();
+        this._globalInfo![savefileId] = this.makeSavefileInfo();
         this.saveGlobalInfo();
         return 0;
     });
@@ -564,7 +564,7 @@ export class DataManager {
 
   static loadGame(savefileId: number): Promise<number> {
     const saveName = this.makeSavename(savefileId);
-    return StorageManager.loadObject(saveName).then(contents => {
+    return StorageManager.loadObject(saveName).then((contents: SaveContents) => {
         this.createGameObjects();
         this.extractSaveContents(contents);
         this.correctDataErrors();
