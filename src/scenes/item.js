@@ -4,6 +4,7 @@ import { Window_ItemCategory, Window_ItemList } from '../windows';
 import { Rectangle } from '../pixi';
 import { Graphics } from '../dom';
 import { SoundManager } from '../managers';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Item

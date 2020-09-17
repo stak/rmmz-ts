@@ -1,5 +1,6 @@
 import { Window_Selectable } from './';
 import { ConfigManager } from '../managers';
+import { $gameMessage, $gameVariables } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_NumberInput

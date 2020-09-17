@@ -1,5 +1,6 @@
 import { Sprite, Bitmap } from '../pixi';
 import { ColorManager } from '../managers';
+import { $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Damage

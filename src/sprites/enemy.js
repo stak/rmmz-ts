@@ -1,5 +1,6 @@
 import { Sprite_Battler } from './';
 import { Sprite_StateIcon } from './';
+import { $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Enemy

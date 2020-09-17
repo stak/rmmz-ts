@@ -3,6 +3,8 @@ import { Game_Vehicle } from './';
 import { Game_Event } from './';
 import { Game_CommonEvent } from './';
 import { AudioManager, ImageManager } from '../managers';
+import { $gamePlayer, $gameSwitches, $gameSystem } from '../managers';
+import { $dataMap, $dataCommonEvents, $dataTilesets } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Map

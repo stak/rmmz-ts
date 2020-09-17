@@ -1,5 +1,6 @@
 import { Sprite } from '../pixi';
 import { ImageManager } from '../managers/image';
+import { $gameMap } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Character

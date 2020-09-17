@@ -1,6 +1,8 @@
 import { Window_Base } from './';
 
 import { DataManager, TextManager, SoundManager } from '../managers';
+import { $gameTemp } from '../managers';
+import { $dataAnimations } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleLog

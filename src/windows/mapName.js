@@ -1,5 +1,6 @@
 import { Window_Base } from './';
 import { ColorManager } from '../managers';
+import { $gameMap } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MapName

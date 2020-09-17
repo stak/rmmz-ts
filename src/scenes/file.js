@@ -3,6 +3,7 @@ import { Window_Help, Window_SavefileList } from '../windows';
 import { DataManager } from '../managers';
 import { Rectangle } from '../pixi';
 import { Graphics } from '../dom';
+import { $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_File

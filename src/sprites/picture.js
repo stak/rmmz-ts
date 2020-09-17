@@ -1,5 +1,6 @@
 import { Sprite_Clickable } from './';
 import { ImageManager } from '../managers';
+import { $gameScreen } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Picture

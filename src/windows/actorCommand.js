@@ -1,5 +1,6 @@
 import { Window_Command } from './';
 import { ConfigManager } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ActorCommand

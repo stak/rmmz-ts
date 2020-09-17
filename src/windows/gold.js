@@ -1,5 +1,6 @@
 import { Window_Selectable } from './';
 import { TextManager } from '../managers';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Gold

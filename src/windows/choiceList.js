@@ -1,5 +1,6 @@
 import { Window_Command } from './';
 import { ConfigManager } from '../managers';
+import { $gameMessage } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ChoiceList

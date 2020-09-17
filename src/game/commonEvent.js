@@ -1,4 +1,5 @@
 import { Game_Interpreter } from './';
+import { $gameSwitches, $dataCommonEvents } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_CommonEvent

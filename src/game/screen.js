@@ -1,4 +1,5 @@
 import { Game_Picture } from './';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Screen

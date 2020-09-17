@@ -1,4 +1,5 @@
 import { Window_Command } from './';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_SkillType

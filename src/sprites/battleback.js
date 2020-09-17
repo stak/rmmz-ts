@@ -1,6 +1,8 @@
 import { TilingSprite } from '../pixi';
 import { Graphics } from '../dom';
 import { ImageManager, BattleManager } from '../managers';
+import { $gameSystem, $gameMap, $gamePlayer } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Battleback

@@ -2,7 +2,8 @@ import { Scene_File } from './';
 // avoid circular: import { Scene_Map } from './map';
 
 import { SceneManager, SoundManager, DataManager, TextManager } from '../managers';
-
+import { $gameMap, $gamePlayer, $gameSystem } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Load

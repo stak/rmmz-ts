@@ -1,5 +1,6 @@
 import { Window_MenuStatus } from './';
 import { DataManager } from '../managers';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MenuActor

@@ -1,6 +1,8 @@
 import { Game_Unit } from './';
 import { Game_Item } from './';
 import { DataManager, TextManager } from '../managers';
+import { $gameActors, $gameMap, $gamePlayer, $gameTemp } from '../managers';
+import { $dataActors, $dataArmors, $dataItems, $dataSystem, $dataWeapons } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Party

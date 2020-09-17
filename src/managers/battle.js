@@ -1,6 +1,7 @@
 import { AudioManager } from './';
 import { SceneManager } from './';
-// import { Game_Action } from '../objects';
+import { $gameMessage, $gameParty, $gameScreen, $gameSystem, $gameTroop } from './';
+import { $dataSystem } from './';
 
 //-----------------------------------------------------------------------------
 // BattleManager

@@ -9,6 +9,7 @@ import {
   SoundManager,
 } from '../managers';
 import { Window_Help } from '../windows';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_MenuBase

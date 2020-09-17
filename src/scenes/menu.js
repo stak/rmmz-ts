@@ -11,6 +11,7 @@ import { SceneManager } from '../managers';
 import { Window_MenuCommand, Window_MenuStatus, Window_Gold } from '../windows';
 import { Rectangle } from '../pixi';
 import { Graphics } from '../dom';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Menu

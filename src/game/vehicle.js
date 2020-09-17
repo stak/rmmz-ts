@@ -1,5 +1,7 @@
 import { Game_Character } from './';
 import { AudioManager } from '../managers';
+import { $gameMap, $gamePlayer, $gameSystem } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Vehicle

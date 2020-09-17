@@ -1,6 +1,8 @@
 import { Game_Character } from './';
 import { Game_Followers } from './';
 import { BattleManager, ConfigManager } from '../managers';
+import { $gameMap, $gameMessage, $gameParty, $gameSystem, $gameTemp } from '../managers';
+import { $dataSystem, $dataTroops } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Player

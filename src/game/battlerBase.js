@@ -1,4 +1,5 @@
 import { DataManager } from '../managers';
+import { $gameParty, $dataStates, $dataSkills } from "../managers";
 
 //-----------------------------------------------------------------------------
 // Game_BattlerBase

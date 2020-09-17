@@ -1,5 +1,7 @@
 import { Window_ItemList } from './';
 import { ConfigManager, DataManager } from '../managers';
+import { $gameVariables, $gameMessage } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_EventItem

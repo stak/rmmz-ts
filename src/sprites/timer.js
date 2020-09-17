@@ -1,5 +1,6 @@
 import { Sprite } from '../pixi';
 import { Graphics } from '../dom';
+import { $gameSystem, $gameTimer } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Timer

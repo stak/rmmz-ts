@@ -1,5 +1,15 @@
-import { Game_Item } from './';
+import { Game_Item } from '.';
 import { DataManager } from '../managers';
+import {
+  $gameActors,
+  $gameTroop,
+  $gameVariables,
+  $gameParty,
+  $gameTemp,
+  $dataSkills,
+  $dataItems,
+  $dataSystem,
+} from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Action

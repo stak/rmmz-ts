@@ -6,6 +6,7 @@ import {
   ImageManager,
   SoundManager,
 } from '../managers';
+import { $gameSystem, $gameActors, $gameParty, $gameVariables } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Base

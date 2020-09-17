@@ -4,6 +4,7 @@ import { Sprite_Battleback } from './';
 import { Sprite_Actor } from './';
 import { Sprite_Enemy } from './';
 import { Sprite } from '../pixi';
+import { $gameParty, $gameSystem, $gameTroop } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Spriteset_Battle

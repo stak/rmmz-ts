@@ -18,6 +18,7 @@ import {
   ConfigManager,
 } from '../managers';
 import { Sprite_Button } from '../sprites';
+import { $gameMessage, $gameParty, $gameScreen, $gameTimer, $gameTroop } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Battle

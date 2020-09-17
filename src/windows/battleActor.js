@@ -1,4 +1,5 @@
 import { Window_BattleStatus } from './';
+import { $gameParty, $gameTemp } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleActor

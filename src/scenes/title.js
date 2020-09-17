@@ -6,6 +6,8 @@ import { SceneManager, AudioManager, ImageManager } from '../managers';
 import { Graphics } from '../dom';
 import { Bitmap, Rectangle } from '../pixi';
 import { Window_TitleCommand } from '../windows';
+import { $gameSystem } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Title

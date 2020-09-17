@@ -1,4 +1,6 @@
 import { Utils } from '../dom';
+import { $gameParty } from '../managers';
+import { $dataCommonEvents, $dataAnimations } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Temp

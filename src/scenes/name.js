@@ -4,6 +4,7 @@ import { Window_NameEdit, Window_NameInput } from '../windows';
 import { ImageManager } from '../managers';
 import { Rectangle } from '../pixi';
 import { Graphics } from '../dom';
+import { $gameActors, $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Name

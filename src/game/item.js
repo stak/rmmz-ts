@@ -1,4 +1,5 @@
 import { DataManager } from '../managers';
+import { $dataArmors, $dataItems, $dataSkills, $dataWeapons } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Item

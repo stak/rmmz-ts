@@ -1,4 +1,5 @@
 import { Game_Actor } from './';
+import { $dataActors } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Actors

@@ -1,5 +1,6 @@
 import { Window_HorzCommand } from './';
 import { TextManager } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ItemCategory

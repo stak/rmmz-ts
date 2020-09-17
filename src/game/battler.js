@@ -2,6 +2,7 @@ import { BattleManager, SoundManager } from '../managers';
 import { Game_BattlerBase } from './';
 import { Game_Action } from './';
 import { Game_ActionResult } from './';
+import { $gameParty, $gameTroop, $dataStates, $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Battler

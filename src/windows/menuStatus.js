@@ -1,5 +1,6 @@
 import { Window_StatusBase } from './';
 import { ImageManager, ColorManager } from '../managers';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MenuStatus

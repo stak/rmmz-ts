@@ -1,6 +1,7 @@
 import { ImageManager, SceneManager, BattleManager, AudioManager, PluginManager} from '../managers';
 import { Graphics, Utils, Video } from '../dom';
 import { Window_MenuCommand } from '../windows';
+import { $gameActors, $gameMap, $gameMessage, $gameParty, $gamePlayer, $gameScreen, $gameSelf, $gameSwitches, $gameSystem, $gameTemp, $gameTimer, $gameTroop, $gameVariables, $dataActors, $dataArmors, $dataClasses, $dataCommon, $dataItems, $dataTilesets, $dataTroops, $dataWeapons } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Interpreter

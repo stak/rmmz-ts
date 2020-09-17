@@ -1,5 +1,6 @@
 import { Graphics } from '../dom';
 import { AudioManager } from '../managers';
+import { $dataSystem, $dataMap } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_System

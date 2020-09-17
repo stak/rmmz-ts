@@ -3,6 +3,8 @@ import { Sprite_Picture } from './';
 import { Sprite_Timer } from './';
 import { Sprite_Animation } from './';
 import { Sprite_AnimationMV } from './';
+import { $gameScreen, $gameTemp } from '../managers';
+import { $dataAnimations } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Spriteset_Base

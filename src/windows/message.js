@@ -1,5 +1,6 @@
 import { Window_Base } from './';
 import { ImageManager } from '../managers';
+import { $gameMessage } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_Message

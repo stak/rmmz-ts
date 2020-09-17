@@ -1,4 +1,5 @@
 import { Window_ItemList } from './';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleItem

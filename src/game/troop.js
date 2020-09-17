@@ -2,6 +2,8 @@ import { Game_Unit } from './';
 import { Game_Enemy } from './';
 import { Game_Interpreter } from './';
 import { BattleManager } from '../managers';
+import { $gameActors, $gameParty, $gameSwitches, $gameSystem, $gameTroop, } from '../managers';
+import { $dataTroops, $dataEnemies } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Troop

@@ -21,6 +21,8 @@ import { Input, TouchInput } from '../dom';
 import { Rectangle } from '../pixi';
 import { Window_MapName } from '../windows';
 import { Spriteset_Map, Sprite_Button } from '../sprites';
+import { $gameMap, $gameMessage, $gamePlayer, $gameScreen, $gameSystem, $gameTemp, $gameTimer } from '../managers';
+import { $dataMap } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Map

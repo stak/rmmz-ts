@@ -1,4 +1,5 @@
 import { Window_Selectable } from './';
+import { $gameTemp, $gameTroop } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleEnemy

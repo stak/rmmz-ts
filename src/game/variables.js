@@ -1,3 +1,5 @@
+import { $gameMap } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Variables

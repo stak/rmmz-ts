@@ -2,7 +2,22 @@ import { Game_BattlerBase } from './';
 import { Game_Battler } from './';
 import { Game_Action } from './';
 import { DataManager, BattleManager, TextManager, SoundManager } from '../managers';
-
+import {
+  $gameMessage,
+  $gameParty,
+  $gamePlayer,
+  $gameScreen,
+  $gameSystem,
+  $gameTemp,
+  $gameTroop,
+  $dataActors,
+  $dataStates,
+  $dataSystem,
+  $dataWeapons,
+  $dataArmors,
+  $dataClasses,
+  $dataSkills,
+} from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Actor

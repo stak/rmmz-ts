@@ -1,5 +1,7 @@
 import { Window_Selectable } from './';
 import { BattleManager, ImageManager, ColorManager, TextManager } from '../managers';
+import { $gameParty } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_StatusBase

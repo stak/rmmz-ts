@@ -5,6 +5,7 @@ import { Window_MenuActor } from '../windows';
 import { Rectangle } from '../pixi';
 import { SceneManager, SoundManager } from '../managers';
 import { Game_Action } from '../game';
+import { $gameParty, $gameTemp } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_ItemBase

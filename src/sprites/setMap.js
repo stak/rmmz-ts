@@ -4,6 +4,7 @@ import { Sprite_Destination } from './';
 import { Sprite_Balloon } from './';
 import { Sprite, TilingSprite, Tilemap, Weather } from '../pixi';
 import { ImageManager } from '../managers';
+import { $gameMap, $gamePlayer, $gameScreen, $gameTemp } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Spriteset_Map

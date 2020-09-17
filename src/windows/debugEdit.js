@@ -1,4 +1,6 @@
 import { Window_Selectable } from './'
+import { $gameVariables, $gameSwitches } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_DebugEdit

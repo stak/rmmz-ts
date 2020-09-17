@@ -1,4 +1,5 @@
 import { Sprite, Bitmap } from '../pixi';
+import { $gameMap, $gameTemp } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Destination

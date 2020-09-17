@@ -1,5 +1,6 @@
 import { Sprite_Clickable } from './';
 import { Sprite_Damage } from './';
+import { $gameTemp } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Battler

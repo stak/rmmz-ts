@@ -12,6 +12,7 @@ import {
 import { SoundManager } from '../managers';
 import { Rectangle } from '../pixi';
 import { Graphics } from '../dom';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Shop

@@ -1,6 +1,7 @@
 import pako from 'pako';
 import localforage from 'localforage';
 import { Utils } from '../dom';
+import { $dataSystem } from './';
 
 //-----------------------------------------------------------------------------
 // StorageManager

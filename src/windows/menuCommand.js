@@ -1,5 +1,7 @@
 import { Window_Command } from './';
 import { TextManager, DataManager } from '../managers';
+import { $gameParty, $gameSystem } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_MenuCommand

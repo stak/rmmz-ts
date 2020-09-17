@@ -1,4 +1,6 @@
 import { Window_Selectable } from './';
+import { $gameParty } from '../managers';
+import { $dataWeapons, $dataArmors, $dataItems } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ShopBuy

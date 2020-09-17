@@ -86,6 +86,7 @@ export let $gamePlayer: Game_Player = null;
 
 export const $testEvent: any = null;
 
+
 //-----------------------------------------------------------------------------
 // DataManager
 //

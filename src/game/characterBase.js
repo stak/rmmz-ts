@@ -1,4 +1,5 @@
 import { ImageManager } from '../managers';
+import { $gameMap } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_CharacterBase

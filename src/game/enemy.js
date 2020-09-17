@@ -1,5 +1,6 @@
 import { Game_Battler } from './';
 import { SoundManager } from '../managers';
+import { $gameParty, $gameSwitches, $gameTroop, $dataEnemies, $dataItems, $dataWeapons, $dataArmors } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Enemy

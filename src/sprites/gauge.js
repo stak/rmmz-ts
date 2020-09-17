@@ -1,5 +1,6 @@
 import { Sprite, Bitmap } from '../pixi';
 import { TextManager, ColorManager } from '../managers';
+import { $gameSystem, $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Gauge

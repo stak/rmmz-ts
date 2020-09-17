@@ -1,5 +1,6 @@
 import { Game_Character } from './';
 import { Game_Interpreter } from './';
+import { $gameActors, $gameMap, $gameParty, $gamePlayer, $gameSelf, $gameSwitches, $gameVariables, $dataMap, $dataItems } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Event

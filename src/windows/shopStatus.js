@@ -1,5 +1,6 @@
 import { Window_StatusBase } from './';
 import { TextManager, DataManager, ColorManager } from '../managers';
+import { $gameParty } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ShopStatus

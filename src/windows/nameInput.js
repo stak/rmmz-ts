@@ -1,5 +1,6 @@
 import { Window_Selectable } from './';
 import { SoundManager } from '../managers';
+import { $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_NameInput

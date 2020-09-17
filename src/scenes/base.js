@@ -3,6 +3,7 @@ import { SceneManager, AudioManager, DataManager, ImageManager, EffectManager, F
 import { Graphics } from '../dom';
 // avoid circular: import { Scene_Gameover } from './gameover';
 import { Window_Base, Window_Selectable } from '../windows';
+import { $gameParty, $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Base

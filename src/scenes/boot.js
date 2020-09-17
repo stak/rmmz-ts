@@ -3,6 +3,7 @@ import { Scene_Title } from './';
 import { SceneManager, ColorManager, ImageManager, FontManager, ConfigManager, DataManager, StorageManager } from '../managers';
 import { Graphics, Utils } from '../dom';
 import { Window_TitleCommand } from '../windows';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Boot

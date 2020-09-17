@@ -1,4 +1,5 @@
 import { Game_Follower } from './';
+import { $gameParty, $gamePlayer, $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Followers

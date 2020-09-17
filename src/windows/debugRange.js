@@ -1,4 +1,5 @@
 import { Window_Selectable } from './';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_DebugRange

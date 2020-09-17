@@ -4,6 +4,7 @@ import { Scene_Base } from './';
 import { SceneManager, AudioManager, ImageManager } from '../managers';
 import { Input, TouchInput } from '../dom';
 import { Sprite } from '../pixi';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Scene_Gameover

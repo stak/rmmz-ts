@@ -1,5 +1,7 @@
 import { Window_StatusBase } from './';
 import { ImageManager } from '../managers';
+import { $gameTemp, $gameParty } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_BattleStatus

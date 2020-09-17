@@ -1,4 +1,5 @@
 import { Window_Base } from './';
+import { $gameMessage } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ScrollText

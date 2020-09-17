@@ -1,5 +1,7 @@
 import { Window_Selectable } from './';
 import { DataManager } from '../managers';
+import { $gameParty } from '../managers';
+import { $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_ItemList

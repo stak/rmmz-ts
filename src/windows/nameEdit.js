@@ -1,5 +1,6 @@
 import { Window_StatusBase } from './';
 import { ColorManager, ImageManager } from '../managers';
+import { $gameSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Window_NameEdit
