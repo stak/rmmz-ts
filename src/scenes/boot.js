@@ -1,7 +1,7 @@
-import { Scene_Base } from './base';
+import { Scene_Base } from './';
+import { Scene_Title } from './';
 import { SceneManager, ColorManager, ImageManager, FontManager, ConfigManager, DataManager, StorageManager } from '../managers';
 import { Graphics, Utils } from '../dom';
-import { Scene_Title } from './title';
 import { Window_TitleCommand } from '../windows';
 
 //-----------------------------------------------------------------------------

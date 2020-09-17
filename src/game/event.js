@@ -1,5 +1,5 @@
-import { Game_Character } from './character';
-import { Game_Interpreter } from './interpreter';
+import { Game_Character } from './';
+import { Game_Interpreter } from './';
 
 //-----------------------------------------------------------------------------
 // Game_Event

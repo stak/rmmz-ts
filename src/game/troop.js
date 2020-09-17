@@ -1,6 +1,6 @@
-import { Game_Unit } from './unit';
-import { Game_Enemy } from './enemy';
-import { Game_Interpreter } from './interpreter';
+import { Game_Unit } from './';
+import { Game_Enemy } from './';
+import { Game_Interpreter } from './';
 import { BattleManager } from '../managers';
 
 //-----------------------------------------------------------------------------

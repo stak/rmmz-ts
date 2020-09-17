@@ -1,4 +1,4 @@
-import { AudioManager } from './audio';
+import { AudioManager } from './';
 
 //-----------------------------------------------------------------------------
 // SoundManager

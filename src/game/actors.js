@@ -1,4 +1,4 @@
-import { Game_Actor } from './actor';
+import { Game_Actor } from './';
 
 //-----------------------------------------------------------------------------
 // Game_Actors

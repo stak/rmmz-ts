@@ -1,4 +1,4 @@
-import { Scene_File } from './file';
+import { Scene_File } from './';
 // avoid circular: import { Scene_Map } from './map';
 
 import { SceneManager, SoundManager, DataManager, TextManager } from '../managers';

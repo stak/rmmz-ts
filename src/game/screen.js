@@ -1,4 +1,4 @@
-import { Game_Picture } from './picture';
+import { Game_Picture } from './';
 
 //-----------------------------------------------------------------------------
 // Game_Screen

@@ -1,4 +1,4 @@
-import { Scene_File } from './file';
+import { Scene_File } from './';
 
 import { SoundManager, DataManager, TextManager } from '../managers';
 

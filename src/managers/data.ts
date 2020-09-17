@@ -1,7 +1,7 @@
 import { Utils, Graphics } from '../dom';
-import { BattleManager } from './battle';
-import { ImageManager } from './image';
-import { StorageManager } from './storage';
+import { BattleManager } from './';
+import { ImageManager } from './';
+import { StorageManager } from './';
 import {
   Game_Temp,
   Game_System,

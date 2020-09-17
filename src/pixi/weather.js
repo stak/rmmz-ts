@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import { Bitmap } from './bitmap';
-import { ScreenSprite } from './screenSprite';
+import { Bitmap } from './';
+import { ScreenSprite } from './';
 
 //-----------------------------------------------------------------------------
 /**

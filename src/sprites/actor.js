@@ -1,7 +1,7 @@
 import { Sprite } from '../pixi';
-import { Sprite_Battler } from './battler';
-import { Sprite_StateOverlay } from './stateOverlay';
-import { Sprite_Weapon } from './weapon';
+import { Sprite_Battler } from './';
+import { Sprite_StateOverlay } from './';
+import { Sprite_Weapon } from './';
 
 //-----------------------------------------------------------------------------
 // Sprite_Actor

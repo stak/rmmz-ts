@@ -1,7 +1,7 @@
-import { Game_Interpreter } from './interpreter';
-import { Game_Vehicle } from './vehicle';
-import { Game_Event } from './event';
-import { Game_CommonEvent } from './commonEvent';
+import { Game_Interpreter } from './';
+import { Game_Vehicle } from './';
+import { Game_Event } from './';
+import { Game_CommonEvent } from './';
 import { AudioManager, ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------

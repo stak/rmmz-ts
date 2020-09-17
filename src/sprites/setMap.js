@@ -1,7 +1,7 @@
-import { Spriteset_Base } from './setBase';
-import { Sprite_Character } from './character';
-import { Sprite_Destination } from './destination';
-import { Sprite_Balloon } from './balloon';
+import { Spriteset_Base } from './';
+import { Sprite_Character } from './';
+import { Sprite_Destination } from './';
+import { Sprite_Balloon } from './';
 import { Sprite, TilingSprite, Tilemap, Weather } from '../pixi';
 import { ImageManager } from '../managers';
 

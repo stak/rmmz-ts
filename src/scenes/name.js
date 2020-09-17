@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 
 import { Window_NameEdit, Window_NameInput } from '../windows';
 import { ImageManager } from '../managers';

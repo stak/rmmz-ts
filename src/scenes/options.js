@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 
 import { Window_Options } from '../windows';
 import { ConfigManager } from '../managers';

@@ -1,6 +1,6 @@
-import { Game_BattlerBase } from './battlerBase';
-import { Game_Battler } from './battler';
-import { Game_Action } from './action';
+import { Game_BattlerBase } from './';
+import { Game_Battler } from './';
+import { Game_Action } from './';
 import { DataManager, BattleManager, TextManager, SoundManager } from '../managers';
 
 

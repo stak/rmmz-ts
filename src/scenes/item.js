@@ -1,4 +1,4 @@
-import { Scene_ItemBase } from './itemBase';
+import { Scene_ItemBase } from './';
 
 import { Window_ItemCategory, Window_ItemList } from '../windows';
 import { Rectangle } from '../pixi';

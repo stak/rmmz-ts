@@ -1,5 +1,5 @@
-import { Game_Character } from './character';
-import { Game_Followers } from './followers';
+import { Game_Character } from './';
+import { Game_Followers } from './';
 import { BattleManager, ConfigManager } from '../managers';
 
 //-----------------------------------------------------------------------------

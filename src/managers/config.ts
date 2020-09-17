@@ -1,5 +1,5 @@
-import { AudioManager } from './audio';
-import { StorageManager } from './storage';
+import { AudioManager } from './';
+import { StorageManager } from './';
 
 type Config = {
   alwaysDash: boolean

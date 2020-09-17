@@ -1,4 +1,4 @@
-import { Window_Scrollable } from './scrollable';
+import { Window_Scrollable } from './';
 import { ColorManager, SoundManager } from '../managers';
 
 //-----------------------------------------------------------------------------

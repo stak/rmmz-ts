@@ -1,5 +1,5 @@
-import { Game_Unit } from './unit';
-import { Game_Item } from './item';
+import { Game_Unit } from './';
+import { Game_Item } from './';
 import { DataManager, TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------

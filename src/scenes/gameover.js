@@ -1,4 +1,4 @@
-import { Scene_Base } from './base';
+import { Scene_Base } from './';
 // avoid circular: import { Scene_Title } from './title';
 
 import { SceneManager, AudioManager, ImageManager } from '../managers';

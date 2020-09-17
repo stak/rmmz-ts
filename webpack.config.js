@@ -49,7 +49,7 @@ module.exports = {
             return;
           }
         }
-        compilation.errors.push(new Error(paths.join(' -> ')))
+        compilation.warnings.push(new Error(paths.join(' -> ')))
       },
       failOnError: true,
       allowAsyncCycles: false,

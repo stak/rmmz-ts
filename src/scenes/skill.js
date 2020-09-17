@@ -1,5 +1,5 @@
-import { Scene_ItemBase } from './itemBase';
-import { Scene_MenuBase } from './menuBase';
+import { Scene_ItemBase } from './';
+import { Scene_MenuBase } from './';
 
 import {
   Window_SkillType,

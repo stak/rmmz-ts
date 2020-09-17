@@ -1,4 +1,4 @@
-import { Game_Follower } from './follower';
+import { Game_Follower } from './';
 
 //-----------------------------------------------------------------------------
 // Game_Followers

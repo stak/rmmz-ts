@@ -1,4 +1,4 @@
-import { Game_Battler } from './battler';
+import { Game_Battler } from './';
 import { SoundManager } from '../managers';
 
 //-----------------------------------------------------------------------------

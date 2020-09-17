@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 // avoid circular: import { Scene_Map } from './map';
 
 import { Window_MenuActor } from '../windows';

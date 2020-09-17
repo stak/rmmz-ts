@@ -1,5 +1,5 @@
-import { Sprite_Battler } from './battler';
-import { Sprite_StateIcon } from './stateIcon';
+import { Sprite_Battler } from './';
+import { Sprite_StateIcon } from './';
 
 //-----------------------------------------------------------------------------
 // Sprite_Enemy

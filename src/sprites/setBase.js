@@ -1,8 +1,8 @@
 import { Sprite, ScreenSprite, ColorFilter, Rectangle } from '../pixi';
-import { Sprite_Picture } from './picture';
-import { Sprite_Timer } from './timer';
-import { Sprite_Animation } from './animation';
-import { Sprite_AnimationMV } from './animationMV';
+import { Sprite_Picture } from './';
+import { Sprite_Timer } from './';
+import { Sprite_Animation } from './';
+import { Sprite_AnimationMV } from './';
 
 //-----------------------------------------------------------------------------
 // Spriteset_Base

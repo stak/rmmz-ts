@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 import { Window_Base, Window_DebugEdit, Window_DebugRange } from '../windows';
 
 import { Rectangle } from '../pixi';

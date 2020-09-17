@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import { Bitmap } from './bitmap';
-import { Rectangle } from './rectangle';
+import { Bitmap } from './';
+import { Rectangle } from './';
 
 //-----------------------------------------------------------------------------
 /**

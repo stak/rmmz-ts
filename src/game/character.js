@@ -1,4 +1,4 @@
-import { Game_CharacterBase } from './characterBase';
+import { Game_CharacterBase } from './';
 import { AudioManager } from '../managers';
 
 //-----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import { Sprite_Clickable } from './clickable';
+import { Sprite_Clickable } from './';
 import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------

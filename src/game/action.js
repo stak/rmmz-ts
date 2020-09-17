@@ -1,4 +1,4 @@
-import { Game_Item } from './item';
+import { Game_Item } from './';
 import { DataManager } from '../managers';
 
 //-----------------------------------------------------------------------------

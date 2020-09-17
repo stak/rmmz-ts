@@ -1,4 +1,4 @@
-import { Window_ItemList } from './itemList';
+import { Window_ItemList } from './';
 
 //-----------------------------------------------------------------------------
 // Window_BattleItem

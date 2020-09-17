@@ -1,4 +1,4 @@
-import { Window_MenuStatus } from './menuStatus';
+import { Window_MenuStatus } from './';
 import { DataManager } from '../managers';
 
 //-----------------------------------------------------------------------------

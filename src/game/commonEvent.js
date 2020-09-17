@@ -1,4 +1,4 @@
-import { Game_Interpreter } from './interpreter';
+import { Game_Interpreter } from './';
 
 //-----------------------------------------------------------------------------
 // Game_CommonEvent

@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 import { Window_Help, Window_SavefileList } from '../windows';
 import { DataManager } from '../managers';
 import { Rectangle } from '../pixi';

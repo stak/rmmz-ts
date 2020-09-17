@@ -1,8 +1,8 @@
 import { Input, TouchInput, WebAudio, Video, Graphics, Utils } from '../dom';
 import { Bitmap } from '../pixi';
-import { ImageManager } from './image';
-import { EffectManager } from './effect';
-import { AudioManager } from './audio';
+import { ImageManager } from './';
+import { EffectManager } from './';
+import { AudioManager } from './';
 
 //-----------------------------------------------------------------------------
 // SceneManager

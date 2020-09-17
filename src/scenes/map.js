@@ -1,4 +1,4 @@
-import { Scene_Message } from './message';
+import { Scene_Message } from './';
 /* avoid circular:
 import { Scene_Battle } from './battle';
 import { Scene_Load } from './load';

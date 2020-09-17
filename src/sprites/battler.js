@@ -1,5 +1,5 @@
-import { Sprite_Clickable } from './clickable';
-import { Sprite_Damage } from './damage';
+import { Sprite_Clickable } from './';
+import { Sprite_Damage } from './';
 
 //-----------------------------------------------------------------------------
 // Sprite_Battler

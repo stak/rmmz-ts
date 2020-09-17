@@ -1,5 +1,5 @@
-import { AudioManager } from './audio';
-import { SceneManager } from './scene';
+import { AudioManager } from './';
+import { SceneManager } from './';
 // import { Game_Action } from '../objects';
 
 //-----------------------------------------------------------------------------

@@ -1,11 +1,11 @@
-import { Scene_MenuBase } from './menuBase';
-import { Scene_Item } from './item';
-import { Scene_Options } from './options';
-import { Scene_Save } from './save';
-import { Scene_GameEnd } from './gameEnd';
-import { Scene_Skill } from './skill';
-import { Scene_Equip } from './equip';
-import { Scene_Status } from './status';
+import { Scene_MenuBase } from './';
+import { Scene_Item } from './';
+import { Scene_Options } from './';
+import { Scene_Save } from './';
+import { Scene_GameEnd } from './';
+import { Scene_Skill } from './';
+import { Scene_Equip } from './';
+import { Scene_Status } from './';
 
 import { SceneManager } from '../managers';
 import { Window_MenuCommand, Window_MenuStatus, Window_Gold } from '../windows';

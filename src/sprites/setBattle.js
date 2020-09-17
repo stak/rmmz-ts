@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js';
-import { Spriteset_Base } from './setBase';
-import { Sprite_Battleback } from './battleback';
-import { Sprite_Actor } from './actor';
-import { Sprite_Enemy } from './enemy';
+import { Spriteset_Base } from './';
+import { Sprite_Battleback } from './';
+import { Sprite_Actor } from './';
+import { Sprite_Enemy } from './';
 import { Sprite } from '../pixi';
 
 //-----------------------------------------------------------------------------

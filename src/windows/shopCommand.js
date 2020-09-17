@@ -1,4 +1,4 @@
-import { Window_HorzCommand } from './horzCommand';
+import { Window_HorzCommand } from './';
 import { TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------

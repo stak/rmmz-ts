@@ -1,4 +1,4 @@
-import { Window_Selectable } from './selectable';
+import { Window_Selectable } from './';
 import { BattleManager, ImageManager, ColorManager, TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------

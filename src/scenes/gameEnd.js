@@ -1,4 +1,4 @@
-import { Scene_MenuBase } from './menuBase';
+import { Scene_MenuBase } from './';
 // avoid circular: import { Scene_Title } from './title';
 
 import { Window_GameEnd, Window_TitleCommand } from '../windows';

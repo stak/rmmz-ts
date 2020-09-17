@@ -1,4 +1,4 @@
-import { Window_Base } from './base';
+import { Window_Base } from './';
 import { ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------

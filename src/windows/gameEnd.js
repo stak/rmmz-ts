@@ -1,4 +1,4 @@
-import { Window_Command } from './command';
+import { Window_Command } from './';
 import { TextManager } from '../managers';
 
 //-----------------------------------------------------------------------------

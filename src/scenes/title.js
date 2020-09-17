@@ -1,7 +1,7 @@
-import { Scene_Base } from './base';
-import { Scene_Map } from './map';
-import { Scene_Load } from './load';
-import { Scene_Options } from './options';
+import { Scene_Base } from './';
+import { Scene_Map } from './';
+import { Scene_Load } from './';
+import { Scene_Options } from './';
 import { SceneManager, AudioManager, ImageManager } from '../managers';
 import { Graphics } from '../dom';
 import { Bitmap, Rectangle } from '../pixi';

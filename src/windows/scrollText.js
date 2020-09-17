@@ -1,4 +1,4 @@
-import { Window_Base } from './base';
+import { Window_Base } from './';
 
 //-----------------------------------------------------------------------------
 // Window_ScrollText

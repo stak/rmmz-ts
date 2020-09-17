@@ -1,7 +1,7 @@
 import { BattleManager, SoundManager } from '../managers';
-import { Game_BattlerBase } from './battlerBase';
-import { Game_Action } from './action';
-import { Game_ActionResult } from './actionResult';
+import { Game_BattlerBase } from './';
+import { Game_Action } from './';
+import { Game_ActionResult } from './';
 
 //-----------------------------------------------------------------------------
 // Game_Battler

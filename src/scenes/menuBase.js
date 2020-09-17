@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { Scene_Base } from './base';
+import { Scene_Base } from './';
 import { Sprite, Rectangle } from '../pixi';
 import { Sprite_Button } from '../sprites';
 import { Graphics } from '../dom';

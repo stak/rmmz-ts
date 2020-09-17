@@ -1,4 +1,4 @@
-import { Window_SkillList } from './skillList';
+import { Window_SkillList } from './';
 
 //-----------------------------------------------------------------------------
 // Window_BattleSkill

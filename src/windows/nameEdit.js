@@ -1,4 +1,4 @@
-import { Window_StatusBase } from './statusBase';
+import { Window_StatusBase } from './';
 import { ColorManager, ImageManager } from '../managers';
 
 //-----------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import { Window_BattleStatus } from './battleStatus';
+import { Window_BattleStatus } from './';
 
 //-----------------------------------------------------------------------------
 // Window_BattleActor

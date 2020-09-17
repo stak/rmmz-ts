@@ -1,4 +1,4 @@
-import { Window_Selectable } from './selectable';
+import { Window_Selectable } from './';
 
 //-----------------------------------------------------------------------------
 // Window_DebugRange

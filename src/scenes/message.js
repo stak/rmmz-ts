@@ -1,4 +1,4 @@
-import { Scene_Base } from './base';
+import { Scene_Base } from './';
 import {
   Window_Message,
   Window_Gold,

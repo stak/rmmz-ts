@@ -1,4 +1,4 @@
-import { Scene_Message } from './message';
+import { Scene_Message } from './';
 
 import {
   Window_BattleActor,
