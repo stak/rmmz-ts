@@ -27,6 +27,7 @@ interface Constructable<T> {
 interface Window {
   effekseer: any
   cordova?: object
+  chrome?: any
   AudioContext?: Constructable<AudioContext>
   webkitAudioContext?: Constructable<AudioContext>
   mozIndexedDB?: IDBFactory

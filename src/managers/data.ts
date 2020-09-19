@@ -277,8 +277,8 @@ export class DataManager {
 
   static loadGlobalInfo(): void {
     StorageManager.loadObject("global")
-        .then((globalInfo: SaveFileInfo[]) => {
-            this._globalInfo = globalInfo;
+        .then((globalInfo: object) => {
+            this._globalInfo = globalInfo as SaveFileInfo[];
             this.removeInvalidGlobalInfo();
             return 0;
         })
@@ -298,7 +298,7 @@ export class DataManager {
   };
 
   static saveGlobalInfo(): void {
-    StorageManager.saveObject("global", this._globalInfo);
+    StorageManager.saveObject("global", this._globalInfo!);
   };
 
   static isGlobalInfoLoaded(): boolean {
@@ -552,7 +552,7 @@ export class DataManager {
     return StorageManager.exists(saveName);
   };
 
-  static saveGame(savefileId: number): void {
+  static saveGame(savefileId: number): Promise<number> {
     const contents = this.makeSaveContents();
     const saveName = this.makeSavename(savefileId);
     return StorageManager.saveObject(saveName, contents).then(() => {
@@ -564,9 +564,9 @@ export class DataManager {
 
   static loadGame(savefileId: number): Promise<number> {
     const saveName = this.makeSavename(savefileId);
-    return StorageManager.loadObject(saveName).then((contents: SaveContents) => {
+    return StorageManager.loadObject(saveName).then((contents: object) => {
         this.createGameObjects();
-        this.extractSaveContents(contents);
+        this.extractSaveContents(contents as SaveContents);
         this.correctDataErrors();
         return 0;
     });

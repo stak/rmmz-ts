@@ -141,9 +141,9 @@ export class Graphics {
   *
   * @param {Stage} stage - The stage object to be rendered.
   */
-  static setStage(stage: PIXI.Container): void {
+  static setStage(stage: PIXI.Container | null): void {
     if (this._app) {
-        this._app.stage = stage;
+        this._app.stage = stage!;
     }
   };
 
@@ -177,7 +177,7 @@ export class Graphics {
   * @param {string} message - The message of the error.
   * @param {Error} [error] - The error object.
   */
-  static printError(name: string, message: string, error: Error | null = null): void {
+  static printError(name: string, message: string, error?: any): void {
     if (!this._errorPrinter) {
         this._createErrorPrinter();
     }

@@ -2,13 +2,13 @@ import { AudioManager } from './';
 import { StorageManager } from './';
 
 type Config = {
-  alwaysDash: boolean
-  commandRemember: boolean
-  touchUI: boolean
-  bgmVolume: number
-  bgsVolume: number
-  meVolume: number
-  seVolume: number
+  alwaysDash?: boolean
+  commandRemember?: boolean
+  touchUI?: boolean
+  bgmVolume?: number
+  bgsVolume?: number
+  meVolume?: number
+  seVolume?: number
 }
 
 //-----------------------------------------------------------------------------
@@ -98,7 +98,7 @@ export class ConfigManager {
 
   static readFlag(config: Config, name: string, defaultValue: boolean): boolean {
     if (name in config) {
-        return !!(config as any)[name];
+        return !!config[name as keyof Config];
     } else {
         return defaultValue;
     }

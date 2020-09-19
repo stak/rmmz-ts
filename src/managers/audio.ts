@@ -1,6 +1,6 @@
 import { WebAudio, Graphics, Utils } from '../dom';
 
-type AudioParams = {
+export type AudioParams = {
   name: string
   volume: number
   pitch: number
@@ -64,7 +64,7 @@ export class AudioManager {
     this._seVolume = value;
   }
 
-  static playBgm(bgm: AudioParams, pos: number): void {
+  static playBgm(bgm: AudioParams, pos?: number): void {
     if (this.isCurrentBgm(bgm)) {
         this.updateBgmParameters(bgm);
     } else {
@@ -103,7 +103,7 @@ export class AudioManager {
     this.updateBufferParameters(this._bgmBuffer!, this._bgmVolume, bgm);
   };
 
-  static updateCurrentBgm(bgm: AudioParams, pos: number): void {
+  static updateCurrentBgm(bgm: AudioParams, pos?: number): void {
     this._currentBgm = {
         name: bgm.name,
         volume: bgm.volume,
@@ -134,7 +134,7 @@ export class AudioManager {
     }
   };
 
-  static playBgs(bgs: AudioParams, pos: number): void {
+  static playBgs(bgs: AudioParams, pos?: number): void {
     if (this.isCurrentBgs(bgs)) {
         this.updateBgsParameters(bgs);
     } else {
@@ -171,7 +171,7 @@ export class AudioManager {
     this.updateBufferParameters(this._bgsBuffer!, this._bgsVolume, bgs);
   };
 
-  static updateCurrentBgs(bgs: AudioParams, pos: number): void {
+  static updateCurrentBgs(bgs: AudioParams, pos?: number): void {
     this._currentBgs = {
         name: bgs.name,
         volume: bgs.volume,
