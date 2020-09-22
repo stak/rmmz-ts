@@ -162,7 +162,7 @@ export class WebAudio {
   _isPlaying = false;
   _decoder: any = null;
 
-  initialize = (url?: string): void => {
+  initialize(url?: string): void {
     this.clear();
     this._url = url!;
     this._startLoading();
@@ -171,7 +171,7 @@ export class WebAudio {
   /**
   * Clears the audio data.
   */
-  clear = (): void => {
+  clear(): void {
     this.stop();
     this._data = null;
     this._fetchedSize = 0;
@@ -268,7 +268,7 @@ export class WebAudio {
   *
   * @returns {boolean} True if the audio data is ready to play.
   */
-  isReady = (): boolean => {
+  isReady(): boolean {
     return this._buffers && this._buffers.length > 0;
   };
 
@@ -277,7 +277,7 @@ export class WebAudio {
   *
   * @returns {boolean} True if a loading error has occurred.
   */
-  isError = (): boolean => {
+  isError(): boolean {
     return this._isError;
   };
 
@@ -286,7 +286,7 @@ export class WebAudio {
   *
   * @returns {boolean} True if the audio is playing.
   */
-  isPlaying = (): boolean => {
+  isPlaying(): boolean {
     return this._isPlaying;
   };
 
@@ -296,7 +296,7 @@ export class WebAudio {
   * @param {boolean} loop - Whether the audio data play in a loop.
   * @param {number} offset - The start position to play in seconds.
   */
-  play = (loop: boolean, offset?: number): void => {
+  play(loop: boolean, offset?: number): void {
     this._loop = loop;
     if (this.isReady()) {
         offset = offset || 0;
@@ -310,7 +310,7 @@ export class WebAudio {
   /**
   * Stops the audio.
   */
-  stop = (): void => {
+  stop(): void {
     this._isPlaying = false;
     this._removeEndTimer();
     this._removeNodes();
@@ -326,7 +326,7 @@ export class WebAudio {
   /**
   * Destroys the audio.
   */
-  destroy = (): void => {
+  destroy(): void {
     this._destroyDecoder();
     this.clear();
   };
@@ -336,7 +336,7 @@ export class WebAudio {
   *
   * @param {number} duration - Fade-in time in seconds.
   */
-  fadeIn = (duration: number): void => {
+  fadeIn(duration: number): void {
     if (this.isReady()) {
         if (this._gainNode) {
             const gain = this._gainNode.gain;
@@ -354,7 +354,7 @@ export class WebAudio {
   *
   * @param {number} duration - Fade-out time in seconds.
   */
-  fadeOut = (duration: number): void => {
+  fadeOut(duration: number): void {
     if (this._gainNode) {
         const gain = this._gainNode.gain;
         const currentTime = WebAudio._currentTime();
@@ -368,7 +368,7 @@ export class WebAudio {
   /**
   * Gets the seek position of the audio.
   */
-  seek = (): number => {
+  seek(): number {
     if (WebAudio._context) {
         let pos = (WebAudio._currentTime() - this._startTime) * this._pitch;
         if (this._loopLengthTime > 0) {
@@ -387,7 +387,7 @@ export class WebAudio {
   *
   * @param {function} listner - The callback function.
   */
-  addLoadListener = (listner: () => void): void => {
+  addLoadListener(listner: () => void): void {
     this._loadListeners.push(listner);
   };
 
@@ -396,21 +396,21 @@ export class WebAudio {
   *
   * @param {function} listner - The callback function.
   */
-  addStopListener = (listner: () => void): void => {
+  addStopListener(listner: () => void): void {
     this._stopListeners.push(listner);
   };
 
   /**
   * Tries to load the audio again.
   */
-  retry = (): void => {
+  retry(): void {
     this._startLoading();
     if (this._isPlaying) {
         this.play(this._loop, 0);
     }
   };
 
-  _startLoading = (): void => {
+  _startLoading(): void {
     if (WebAudio._context) {
         const url = this._realUrl();
         if (Utils.isLocal()) {
@@ -429,11 +429,11 @@ export class WebAudio {
     }
   };
 
-  _shouldUseDecoder = (): boolean => {
+  _shouldUseDecoder(): boolean {
     return !Utils.canPlayOgg() && typeof VorbisDecoder === "function";
   };
 
-  _createDecoder = (): void => {
+  _createDecoder(): void {
     this._decoder = new VorbisDecoder(
         WebAudio._context,
         this._onDecode.bind(this),
@@ -441,18 +441,18 @@ export class WebAudio {
     );
   };
 
-  _destroyDecoder = (): void => {
+  _destroyDecoder(): void {
     if (this._decoder) {
         this._decoder.destroy();
         this._decoder = null;
     }
   };
 
-  _realUrl = (): string => {
+  _realUrl(): string {
     return this._url + (Utils.hasEncryptedAudio() ? "_" : "");
   };
 
-  _startXhrLoading = (url: string): void => {
+  _startXhrLoading(url: string): void {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.responseType = "arraybuffer";
@@ -461,14 +461,14 @@ export class WebAudio {
     xhr.send();
   };
 
-  _startFetching = (url: string): void => {
+  _startFetching(url: string): void {
     const options: RequestInit = { credentials: "same-origin" };
     fetch(url, options)
         .then(response => this._onFetch(response))
         .catch(() => this._onError());
   };
 
-  _onXhrLoad = (xhr: XMLHttpRequest): void => {
+  _onXhrLoad(xhr: XMLHttpRequest): void {
     if (xhr.status < 400) {
         this._data = new Uint8Array(xhr.response);
         this._isLoaded = true;
@@ -478,7 +478,7 @@ export class WebAudio {
     }
   };
 
-  _onFetch = (response: Response): void => {
+  _onFetch(response: Response): void {
     if (response.ok) {
         const reader = response.body!.getReader();
         const readChunk: ((value: ReadableStreamReadResult<Uint8Array>) => number | Promise<any>) = ({ done, value }) => {
@@ -504,7 +504,7 @@ export class WebAudio {
     }
   };
 
-  _onError = (): void => {
+  _onError(): void {
     if (this._sourceNodes.length > 0) {
         this._stopSourceNode();
     }
@@ -512,13 +512,13 @@ export class WebAudio {
     this._isError = true;
   };
 
-  _onFetchProcess = (value: Uint8Array): void => {
+  _onFetchProcess(value: Uint8Array): void {
     this._fetchedSize += value.length;
     this._fetchedData.push(value);
     this._updateBufferOnFetch();
   };
 
-  _updateBufferOnFetch = (): void => {
+  _updateBufferOnFetch(): void {
     const currentTime = WebAudio._currentTime();
     const deltaTime = currentTime - this._lastUpdateTime;
     const currentData = this._data;
@@ -530,7 +530,7 @@ export class WebAudio {
     }
   };
 
-  _concatenateFetchedData = (): void => {
+  _concatenateFetchedData(): void {
     const currentData = this._data;
     const currentSize = currentData ? currentData.length : 0;
     const newData = new Uint8Array(currentSize + this._fetchedSize);
@@ -548,13 +548,13 @@ export class WebAudio {
     this._fetchedSize = 0;
   };
 
-  _updateBuffer = (): void => {
+  _updateBuffer(): void {
     const arrayBuffer = this._readableBuffer();
     this._readLoopComments(arrayBuffer);
     this._decodeAudioData(arrayBuffer);
   };
 
-  _readableBuffer = (): ArrayBufferLike => {
+  _readableBuffer(): ArrayBufferLike {
     if (Utils.hasEncryptedAudio()) {
         return Utils.decryptArrayBuffer(this._data!.buffer);
     } else {
@@ -562,7 +562,7 @@ export class WebAudio {
     }
   };
 
-  _decodeAudioData = (arrayBuffer: ArrayBufferLike): void => {
+  _decodeAudioData(arrayBuffer: ArrayBufferLike): void {
     if (this._shouldUseDecoder()) {
         if (this._decoder) {
             this._decoder.send(arrayBuffer, this._isLoaded);
@@ -577,7 +577,7 @@ export class WebAudio {
     }
   };
 
-  _onDecode = (buffer: AudioBuffer): void => {
+  _onDecode(buffer: AudioBuffer): void {
     if (!this._shouldUseDecoder()) {
         this._buffers = [];
         this._totalTime = 0;
@@ -597,7 +597,7 @@ export class WebAudio {
     this._onLoad();
   };
 
-  _refreshSourceNode = (): void => {
+  _refreshSourceNode(): void {
     if (this._shouldUseDecoder()) {
         const index = this._buffers.length - 1;
         this._createSourceNode(index);
@@ -617,7 +617,7 @@ export class WebAudio {
     }
   };
 
-  _startPlaying = (offset: number): void => {
+  _startPlaying(offset: number): void {
     if (this._loopLengthTime > 0) {
         while (offset >= this._loopStartTime + this._loopLengthTime) {
             offset -= this._loopLengthTime;
@@ -633,13 +633,13 @@ export class WebAudio {
     this._createEndTimer();
   };
 
-  _startAllSourceNodes = (): void => {
+  _startAllSourceNodes(): void {
     for (let i = 0; i < this._sourceNodes.length; i++) {
         this._startSourceNode(i);
     }
   };
 
-  _startSourceNode = (index: number): void => {
+  _startSourceNode(index: number): void {
     const sourceNode = this._sourceNodes[index];
     const seekPos = this.seek();
     const currentTime = WebAudio._currentTime();
@@ -694,7 +694,7 @@ export class WebAudio {
     chunkStart += sourceNode.buffer!.duration;
   };
 
-  _stopSourceNode = (): void => {
+  _stopSourceNode(): void {
     for (const sourceNode of this._sourceNodes) {
         try {
             sourceNode.onended = null;
@@ -705,27 +705,27 @@ export class WebAudio {
     }
   };
 
-  _createPannerNode = (): void => {
+  _createPannerNode(): void {
     this._pannerNode = WebAudio._context!.createPanner();
     this._pannerNode.panningModel = "equalpower";
     this._pannerNode.connect(WebAudio._masterGainNode!);
     this._updatePanner();
   };
 
-  _createGainNode = (): void => {
+  _createGainNode(): void {
     const currentTime = WebAudio._currentTime();
     this._gainNode = WebAudio._context!.createGain();
     this._gainNode.gain.setValueAtTime(this._volume, currentTime);
     this._gainNode.connect(this._pannerNode!);
   };
 
-  _createAllSourceNodes = (): void => {
+  _createAllSourceNodes(): void {
     for (let i = 0; i < this._buffers.length; i++) {
         this._createSourceNode(i);
     }
   };
 
-  _createSourceNode = (index: number): void => {
+  _createSourceNode(index: number): void {
     const sourceNode = WebAudio._context!.createBufferSource();
     const currentTime = WebAudio._currentTime();
     sourceNode.buffer = this._buffers[index];
@@ -737,7 +737,7 @@ export class WebAudio {
     this._sourceNodes[index] = sourceNode;
   };
 
-  _removeNodes = (): void => {
+  _removeNodes(): void {
     if (this._sourceNodes && this._sourceNodes.length > 0) {
         this._stopSourceNode();
         this._sourceNodes = [];
@@ -746,7 +746,7 @@ export class WebAudio {
     }
   };
 
-  _createEndTimer = (): void => {
+  _createEndTimer(): void {
     if (this._sourceNodes.length > 0 && !this._loop) {
         const endTime = this._startTime + this._totalTime / this._pitch;
         const delay = endTime - WebAudio._currentTime();
@@ -754,14 +754,14 @@ export class WebAudio {
     }
   };
 
-  _removeEndTimer = (): void => {
+  _removeEndTimer(): void {
     if (this._endTimer) {
         clearTimeout(this._endTimer);
         this._endTimer = null;
     }
   };
 
-  _updatePanner = (): void => {
+  _updatePanner(): void {
     if (this._pannerNode) {
         const x = this._pan;
         const z = 1 - Math.abs(x);
@@ -769,14 +769,14 @@ export class WebAudio {
     }
   };
 
-  _onLoad = (): void => {
+  _onLoad(): void {
     while (this._loadListeners.length > 0) {
         const listner = this._loadListeners.shift();
         listner!();
     }
   };
 
-  _readLoopComments = (arrayBuffer: ArrayBufferLike): void => {
+  _readLoopComments(arrayBuffer: ArrayBufferLike): void {
     const view = new DataView(arrayBuffer);
     let index = 0;
     while (index < view.byteLength - 30) {
@@ -819,7 +819,7 @@ export class WebAudio {
     }
   };
 
-  _readMetaData = (view: DataView, index: number, size: number): void => {
+  _readMetaData(view: DataView, index: number, size: number): void {
     for (let i = index; i < index + size - 10; i++) {
         if (this._readFourCharacters(view, i) === "LOOP") {
             let text = "";
@@ -848,7 +848,7 @@ export class WebAudio {
     }
   };
 
-  _readFourCharacters = (view: DataView, index: number): string => {
+  _readFourCharacters(view: DataView, index: number): string {
     let string = "";
     if (index <= view.byteLength - 4) {
         for (let i = 0; i < 4; i++) {

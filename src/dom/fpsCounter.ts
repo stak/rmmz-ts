@@ -21,7 +21,7 @@ export class FPSCounter {
   _labelDiv?: HTMLDivElement
   _numberDiv?: HTMLDivElement
 
-  initialize = (...args: any): void => {
+  initialize(...args: any): void {
     this._tickCount = 0;
     this._frameTime = 100;
     this._frameStart = 0;
@@ -34,11 +34,11 @@ export class FPSCounter {
     this._update();
   };
 
-  startTick = (): void => {
+  startTick(): void {
     this._frameStart = performance.now();
   };
 
-  endTick = (): void => {
+  endTick(): void {
     const time = performance.now();
     const thisFrameTime = time - this._lastLoop;
     this._frameTime += (thisFrameTime - this._frameTime) / 12;
@@ -50,7 +50,7 @@ export class FPSCounter {
     }
   };
 
-  switchMode = (): void => {
+  switchMode(): void {
     if (this._boxDiv!.style.display === "none") {
         this._boxDiv!.style.display = "block";
         this._showFps = true;
@@ -62,7 +62,7 @@ export class FPSCounter {
     this._update();
   };
 
-  _createElements = (): void => {
+  _createElements(): void {
     this._boxDiv = document.createElement("div");
     this._labelDiv = document.createElement("div");
     this._numberDiv = document.createElement("div");
@@ -75,7 +75,7 @@ export class FPSCounter {
     document.body.appendChild(this._boxDiv);
   };
 
-  _update = (): void => {
+  _update(): void {
     const count = this._showFps ? this.fps : this.duration;
     this._labelDiv!.textContent = this._showFps ? "FPS" : "ms";
     this._numberDiv!.textContent = count.toFixed(0);

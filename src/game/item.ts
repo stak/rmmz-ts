@@ -26,7 +26,7 @@ export class Game_Item {
   _dataClass: ItemDataClass = ItemDataClass.Null
   _itemId: number = 0
 
-  initialize = (item?: object) => {
+  initialize(item?: object): void {
     this._dataClass = "";
     this._itemId = 0;
     if (item) {
@@ -34,39 +34,39 @@ export class Game_Item {
     }
   };
 
-  isSkill = (): boolean => {
+  isSkill(): boolean {
     return this._dataClass === "skill";
   };
 
-  isItem = (): boolean => {
+  isItem(): boolean {
     return this._dataClass === "item";
   };
 
-  isUsableItem = (): boolean => {
+  isUsableItem(): boolean {
     return this.isSkill() || this.isItem();
   };
 
-  isWeapon = (): boolean => {
+  isWeapon(): boolean {
     return this._dataClass === "weapon";
   };
 
-  isArmor = (): boolean => {
+  isArmor(): boolean {
     return this._dataClass === "armor";
   };
 
-  isEquipItem = (): boolean => {
+  isEquipItem(): boolean {
     return this.isWeapon() || this.isArmor();
   };
 
-  isNull = (): boolean => {
+  isNull(): boolean {
     return this._dataClass === "";
   };
 
-  itemId = (): number => {
+  itemId(): number {
     return this._itemId;
   };
 
-  object = (): object | null => {
+  object(): object | null {
     if (this.isSkill()) {
         return $dataSkills[this._itemId];
     } else if (this.isItem()) {
@@ -80,7 +80,7 @@ export class Game_Item {
     }
   };
 
-  setObject = (item: object): void => {
+  setObject(item: object): void {
     if (DataManager.isSkill(item)) {
         this._dataClass = "skill";
     } else if (DataManager.isItem(item)) {
@@ -95,7 +95,7 @@ export class Game_Item {
     this._itemId = item ? (item as any).id : 0;
   };
 
-  setEquip = (isWeapon: boolean, itemId: number): void => {
+  setEquip(isWeapon: boolean, itemId: number): void {
     this._dataClass = isWeapon ? "weapon" : "armor";
     this._itemId = itemId;
   };
