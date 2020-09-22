@@ -32,39 +32,39 @@ export class Game_Item {
     if (item) {
         this.setObject(item);
     }
-  };
+  }
 
   isSkill(): boolean {
     return this._dataClass === "skill";
-  };
+  }
 
   isItem(): boolean {
     return this._dataClass === "item";
-  };
+  }
 
   isUsableItem(): boolean {
     return this.isSkill() || this.isItem();
-  };
+  }
 
   isWeapon(): boolean {
     return this._dataClass === "weapon";
-  };
+  }
 
   isArmor(): boolean {
     return this._dataClass === "armor";
-  };
+  }
 
   isEquipItem(): boolean {
     return this.isWeapon() || this.isArmor();
-  };
+  }
 
   isNull(): boolean {
     return this._dataClass === "";
-  };
+  }
 
   itemId(): number {
     return this._itemId;
-  };
+  }
 
   object(): object | null {
     if (this.isSkill()) {
@@ -78,7 +78,7 @@ export class Game_Item {
     } else {
         return null;
     }
-  };
+  }
 
   setObject(item: object): void {
     if (DataManager.isSkill(item)) {
@@ -93,10 +93,10 @@ export class Game_Item {
         this._dataClass = "";
     }
     this._itemId = item ? (item as any).id : 0;
-  };
+  }
 
   setEquip(isWeapon: boolean, itemId: number): void {
     this._dataClass = isWeapon ? "weapon" : "armor";
     this._itemId = itemId;
-  };
+  }
 }

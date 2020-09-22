@@ -1,4 +1,7 @@
+import { MZ } from "../MZ";
+
 //-----------------------------------------------------------------------------
+
 /**
  * The static class that handles input data from the keyboard and gamepads.
  *
@@ -86,8 +89,8 @@ export class Input {
   static _gamepadStates: boolean[][]
   static _latestButton: string | null
   static _pressedTime: number
-  static _dir4: number
-  static _dir8: number
+  static _dir4: MZ.MoveDirection
+  static _dir8: MZ.MoveDirection8
   static _preferredAxis: "" | "x" | "y"
   static _date: number
   static _virtualButton: string | null
@@ -205,7 +208,7 @@ export class Input {
   * @type number
   * @name Input.dir4
   */
-  static get dir4(): number {
+  static get dir4(): MZ.MoveDirection {
     return this._dir4;
   }
 
@@ -216,7 +219,7 @@ export class Input {
   * @type number
   * @name Input.dir8
   */
-  static get dir8(): number {
+  static get dir8(): MZ.MoveDirection8 {
     return this._dir8;
   }
 
@@ -343,7 +346,7 @@ export class Input {
     } else if (y !== 0) {
         this._preferredAxis = "x";
     }
-    this._dir4 = this._makeNumpadDirection(x, y);
+    this._dir4 = this._makeNumpadDirection(x, y) as MZ.MoveDirection;
   };
 
   static _signX(): number {
@@ -358,11 +361,11 @@ export class Input {
     return down - up;
   };
 
-  static _makeNumpadDirection(x: number, y: number): number {
+  static _makeNumpadDirection(x: number, y: number): MZ.MoveDirection8 {
     if (x === 0 && y === 0) {
         return 0;
     } else {
-        return 5 - y * 3 + x;
+        return 5 - y * 3 + x as MZ.MoveDirection8;
     }
   };
 
