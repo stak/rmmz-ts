@@ -17,6 +17,7 @@ import {
   Game_Map,
   Game_Player,
 } from '../game'
+import { MZ } from '../MZ';
 
 type SaveFileInfo = {
   title: string
@@ -54,21 +55,21 @@ type GameObject = {
 }
 
 // TODO: typing
-export let $dataActors: any = null;
-export let $dataClasses: any = null;
-export let $dataSkills: any = null;
-export let $dataItems: any = null;
-export let $dataWeapons: any = null;
-export let $dataArmors: any = null;
-export let $dataEnemies: any = null;
-export let $dataTroops: any = null;
-export let $dataStates: any = null;
-export let $dataAnimations: any = null;
-export let $dataTilesets: any = null;
-export let $dataCommonEvents: any = null;
-export let $dataSystem: any = null;
-export let $dataMapInfos: any = null;
-export let $dataMap: any = null;
+export let $dataActors: MZ.DataActor[];
+export let $dataClasses: MZ.DataClass[];
+export let $dataSkills: MZ.DataSkill[];
+export let $dataItems: MZ.DataItem[];
+export let $dataWeapons: MZ.DataWeapon[];
+export let $dataArmors: MZ.DataArmor[];
+export let $dataEnemies: MZ.DataEnemy[];
+export let $dataTroops: MZ.DataTroop[];
+export let $dataStates: MZ.DataState[];
+export let $dataAnimations: MZ.DataAnimation[];
+export let $dataTilesets: MZ.DataTileset[];
+export let $dataCommonEvents: MZ.DataCommonEvent[];
+export let $dataSystem: MZ.DataSystem;
+export let $dataMapInfos: MZ.DataMapInfo[];
+export let $dataMap: MZ.DataMap;
 export let $gameTemp: Game_Temp = null;
 export let $gameSystem: Game_System = null;
 export let $gameScreen: Game_Screen = null;
@@ -361,7 +362,7 @@ export class DataManager {
   };
 
   static makeEmptyMap(): void {
-    $dataMap = {};
+    $dataMap = {} as MZ.DataMap;
     $dataMap.data = [];
     $dataMap.events = [];
     $dataMap.width = 100;
@@ -433,19 +434,19 @@ export class DataManager {
   };
 
   static isSkill(item: object): boolean {
-    return item && $dataSkills.includes(item);
+    return item && $dataSkills.includes(item as MZ.DataSkill);
   };
 
   static isItem(item: object): boolean {
-    return item && $dataItems.includes(item);
+    return item && $dataItems.includes(item as MZ.DataItem);
   };
 
   static isWeapon(item: object): boolean {
-    return item && $dataWeapons.includes(item);
+    return item && $dataWeapons.includes(item as MZ.DataWeapon);
   };
 
   static isArmor(item: object): boolean {
-    return item && $dataArmors.includes(item);
+    return item && $dataArmors.includes(item as MZ.DataArmor);
   };
 
   static createGameObjects(): void {
