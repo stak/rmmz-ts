@@ -1,6 +1,6 @@
 import { Sprite, Point } from '../pixi';
 import { Utils, Graphics } from '../dom';
-import { EffectManager } from '../managers/effect';
+import { EffectManager } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Sprite_Animation
