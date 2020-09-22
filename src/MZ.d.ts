@@ -616,7 +616,7 @@ declare namespace MZ {
     weight: number;
     regionSet: number[];
   }
-  export type MapEventArray = [null, ...Event[]]
+  export type MapEventArray = [null, ...Event[]] | []
 
   export interface DataMap {
     displayName: string;
