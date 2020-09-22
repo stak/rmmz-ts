@@ -5,10 +5,10 @@ import { TextManager } from '.';
 import { $gameMessage, $gameParty, $gameScreen, $gameSystem, $gameTroop } from '.';
 import { $dataSystem } from '.';
 import { Game_Action, Game_Actor, Game_Battler } from '../game';
-import { AudioParams } from './audio';
 import { Window_BattleLog } from '../windows'
 import { Spriteset_Battle } from '../sprites';
 import { Scene_Gameover } from '../scenes';
+import { MZ } from '../MZ';
 
 const BattlePhase = {
   Init: "",
@@ -50,8 +50,8 @@ export class BattleManager {
   static _surprise: boolean
   static _currentActor: Game_Actor | null
   static _actionForcedBattler: Game_Battler | null
-  static _mapBgm: AudioParams | null
-  static _mapBgs: AudioParams | null
+  static _mapBgm: MZ.AudioParam | null
+  static _mapBgs: MZ.AudioParam | null
   static _actionBattlers: Game_Battler[]
   static _subject: Game_Battler | null
   static _action: Game_Action | null

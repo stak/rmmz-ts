@@ -15,6 +15,7 @@ declare namespace MZ {
   export type StateID = DataID
   export type AnimationID = DataID
   export type MapID = DataID
+  export type CommonEventID = DataID
 
   export type SwitchID = ID
   export type VariableID = ID
@@ -63,9 +64,10 @@ declare namespace MZ {
 
   export interface AudioParam {
       name: string;
-      pan: number;
-      pitch: number;
       volume: number;
+      pitch: number;
+      pan?: number;
+      pos?: number;
   }
 
   namespace ItemKind {
@@ -700,7 +702,9 @@ declare namespace MZ {
 
   export type SelfSwitchCh = 'A' | 'B' | 'C' | 'D'
   export type MoveSpeed = 1 | 2 | 3 | 4 | 5 | 6
-  export type MoveFrequency = 1 | 2 | 3 | 4 | 5
+  export type MoveFrequency = 1 | 2 | 3 | 4 | 5 | 6
+  export type MoveDirection = 0 | 2 | 4 | 6 | 8
+  export type MoveDirection8 = 0 | 1 | 2 | 3 | 4 | 6 | 7 | 8 | 9
   export interface EventConditions {
       actorValid: boolean;
       actorId: ActorID;
