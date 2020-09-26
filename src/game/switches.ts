@@ -10,7 +10,12 @@ import { MZ } from '../MZ';
 export class Game_Switches {
   _data: boolean[] = []
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_Switches>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_Switches) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

@@ -11,14 +11,18 @@ import { Game_Actor } from '.';
 export class Game_Follower extends Game_Character {
   _memberIndex = 0
 
-  constructor(memberIndex: number) {
-    super();
+  constructor(memberIndex: number)
+  constructor(thisClass: Constructable<Game_Follower>)
+  constructor(arg: any) {
+    super(Game_Character);
+    if (typeof arg === "function" && arg === Game_Follower) {
+      return;
+    }
     this.initialize(...arguments);
   }
 
   initialize(memberIndex?: number): void {
-    // move to super() in constructor
-    // Game_CharacterBase.prototype.initialize.call(this);
+    super.initialize();
     this._memberIndex = memberIndex!;
     this.setTransparent($dataSystem.optTransparent);
     this.setThrough(true);

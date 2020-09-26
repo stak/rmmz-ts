@@ -11,7 +11,12 @@ type SelfSwitchData = [ MZ.MapID, MZ.ID, MZ.SelfSwitchCh ];
 export class Game_SelfSwitches {
   _data: { [key: string]: boolean } = {}
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_SelfSwitches>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_SelfSwitches) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

@@ -42,7 +42,12 @@ export class Game_CharacterBase {
   _jumpPeak = 0;
   _movementSuccess = true;
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_CharacterBase>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_CharacterBase) {
+      return;
+    }
     this.initialize(...arguments);
   }
 
@@ -488,7 +493,7 @@ export class Game_CharacterBase {
     this.checkEventTriggerTouch(x2, y2);
   };
 
-  checkEventTriggerTouch(x: number, y: number): boolean {
+  checkEventTriggerTouch(x: number, y: number): boolean | void {
     return false;
   };
 

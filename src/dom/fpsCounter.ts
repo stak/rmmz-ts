@@ -5,7 +5,12 @@
 // The original can be found at https://github.com/Darsain/fpsmeter.
 
 export class FPSCounter {
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<FPSCounter>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === FPSCounter) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

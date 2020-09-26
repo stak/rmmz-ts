@@ -8,7 +8,12 @@ import { Utils } from './';
  * @param {string} url - The url of the audio file.
  */
 export class WebAudio {
-  constructor(url?: string) {
+  constructor(url?: string)
+  constructor(thisClass: Constructable<WebAudio>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === WebAudio) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

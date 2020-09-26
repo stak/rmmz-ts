@@ -12,7 +12,12 @@ export class Game_CommonEvent {
   _commonEventId: MZ.CommonEventID = 0
   _interpreter: Game_Interpreter | null = null
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_CommonEvent>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_CommonEvent) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

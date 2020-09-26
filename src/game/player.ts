@@ -28,14 +28,18 @@ export class Game_Player extends Game_Character {
   _followers = new Game_Followers();
   _encounterCount = 0;
 
-  constructor() {
-    super();
+  constructor()
+  constructor(thisClass: Constructable<Game_Player>)
+  constructor(arg?: any) {
+    super(Game_Character);
+    if (typeof arg === "function" && arg === Game_Player) {
+      return;
+    }
     this.initialize(...arguments);
   }
 
   initialize(..._: any): void {
-    // move to super() in constructor
-    // Game_Character.prototype.initialize.call(this);
+    super.initialize();
     this.setTransparent($dataSystem.optTransparent);
   }
 

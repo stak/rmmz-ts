@@ -19,7 +19,12 @@ type ItemDataClass = typeof ItemDataClass[keyof typeof ItemDataClass]
 // required because save data should not include the database object itself.
 
 export class Game_Item {
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_Item>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_Item) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

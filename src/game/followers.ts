@@ -12,7 +12,12 @@ export class Game_Followers {
   _gathering = false
   _data: Game_Follower[] = []
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_Followers>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_Followers) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

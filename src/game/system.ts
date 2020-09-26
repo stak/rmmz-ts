@@ -29,7 +29,12 @@ export class Game_System {
   _savedBgm: MZ.AudioParam | null = null
   _walkingBgm: MZ.AudioParam | null = null
 
-  constructor() {
+  constructor()
+  constructor(thisClass: Constructable<Game_System>)
+  constructor(arg?: any) {
+    if (typeof arg === "function" && arg === Game_System) {
+      return;
+    }
     this.initialize(...arguments);
   }
 

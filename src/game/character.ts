@@ -63,14 +63,18 @@ export class Game_Character extends Game_CharacterBase {
   _originalMoveRouteIndex = 0;
   _waitCount = 0;
 
-  constructor() {
-    super();
+  constructor()
+  constructor(thisClass: Constructable<Game_Character>)
+  constructor(arg?: any) {
+    super(Game_CharacterBase);
+    if (typeof arg === "function" && arg === Game_Character) {
+      return;
+    }
     this.initialize(...arguments);
   }
 
   initialize(..._: any): void {
-    // move to super() in constructor
-    // Game_CharacterBase.prototype.initialize.call(this);
+    super.initialize();
   }
 
   initMembers(): void {
