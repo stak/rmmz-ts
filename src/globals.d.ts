@@ -32,6 +32,7 @@ interface Window {
   webkitAudioContext?: Constructable<AudioContext>
   mozIndexedDB?: IDBFactory
   webkitIndexedDB?: IDBFactory
+  $testEvent: any
 }
 
 interface Document {
