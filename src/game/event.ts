@@ -260,7 +260,7 @@ export class Game_Event extends Game_Character {
     }
     if (c.actorValid) {
         const actor = $gameActors.actor(c.actorId);
-        if (!$gameParty.members().includes(actor)) {
+        if (!$gameParty.members().includes(actor!)) {
             return false;
         }
     }

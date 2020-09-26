@@ -1,6 +1,6 @@
 import { Game_Character } from '.';
-import { $gameParty, $gamePlayer, $dataSystem } from '../managers';
 import { Game_Actor } from '.';
+import { $gameParty, $gamePlayer, $dataSystem } from '../managers';
 
 //-----------------------------------------------------------------------------
 // Game_Follower

@@ -461,7 +461,7 @@ export class Game_Character extends Game_CharacterBase {
     this.locate(newX, newY);
   };
 
-  findDirectionTo(goalX: number, goalY: number): MZ.MoveDirection {
+  findDirectionTo(goalX: number | null, goalY: number | null): MZ.MoveDirection {
     const searchLimit = this.searchLimit();
     const mapWidth = $gameMap.width();
     const nodeList = [];
@@ -478,7 +478,7 @@ export class Game_Character extends Game_CharacterBase {
     start.x = this.x;
     start.y = this.y;
     start.g = 0;
-    start.f = $gameMap.distance(start.x, start.y, goalX, goalY);
+    start.f = $gameMap.distance(start.x, start.y, goalX!, goalY!);
     nodeList.push(start);
     openList.push(start.y * mapWidth + start.x);
 
@@ -537,7 +537,7 @@ export class Game_Character extends Game_CharacterBase {
                 neighbor.x = x2;
                 neighbor.y = y2;
                 neighbor.g = g2;
-                neighbor.f = g2 + $gameMap.distance(x2, y2, goalX, goalY);
+                neighbor.f = g2 + $gameMap.distance(x2, y2, goalX!, goalY!);
                 if (!best || neighbor.f - neighbor.g < best.f - best.g) {
                     best = neighbor;
                 }
@@ -562,8 +562,8 @@ export class Game_Character extends Game_CharacterBase {
         return 8;
     }
 
-    const deltaX2 = this.deltaXFrom(goalX);
-    const deltaY2 = this.deltaYFrom(goalY);
+    const deltaX2 = this.deltaXFrom(goalX!);
+    const deltaY2 = this.deltaYFrom(goalY!);
     if (Math.abs(deltaX2) > Math.abs(deltaY2)) {
         return deltaX2 > 0 ? 4 : 6;
     } else if (deltaY2 !== 0) {

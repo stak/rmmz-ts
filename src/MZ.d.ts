@@ -77,22 +77,29 @@ declare namespace MZ {
   }
   export type ItemKind = ItemKind.Item | ItemKind.Weapon | ItemKind.Armor
 
-  namespace HitType {
+  namespace ConsumableHitType {
     export type Certain = 0
     export type Physical = 1
     export type Magical = 2
   }
-  export type HitType = HitType.Certain |  HitType.Physical |  HitType.Magical
+  export type ConsumableHitType =
+    ConsumableHitType.Certain |
+    ConsumableHitType.Physical |
+    ConsumableHitType.Magical
 
-  namespace Occasion {
+  namespace ConsumableOccasion {
     export type Always = 0
     export type Battle = 1
     export type Menu = 2
     export type Never = 3
   }
-  export type Occasion = Occasion.Always | Occasion.Battle | Occasion.Menu | Occasion.Never
+  export type ConsumableOccasion = 
+    ConsumableOccasion.Always |
+    ConsumableOccasion.Battle |
+    ConsumableOccasion.Menu |
+    ConsumableOccasion.Never
 
-  namespace Scope {
+  namespace ConsumableScope {
     export type None = 0
     export type Enemy = 1
     export type EnemyAll = 2
@@ -109,22 +116,22 @@ declare namespace MZ {
     export type ActorAll = 13
     export type All = 14
   }
-  export type Scope =
-    Scope.None |
-    Scope.Enemy |
-    Scope.EnemyAll |
-    Scope.EnemyRandom1 |
-    Scope.EnemyRandom2 |
-    Scope.EnemyRandom3 |
-    Scope.EnemyRandom4 |
-    Scope.ActorAlive |
-    Scope.ActorAliveAll |
-    Scope.ActorDead |
-    Scope.ActorDeadAll |
-    Scope.User |
-    Scope.Actor |
-    Scope.ActorAll |
-    Scope.All
+  export type ConsumableScope =
+    ConsumableScope.None |
+    ConsumableScope.Enemy |
+    ConsumableScope.EnemyAll |
+    ConsumableScope.EnemyRandom1 |
+    ConsumableScope.EnemyRandom2 |
+    ConsumableScope.EnemyRandom3 |
+    ConsumableScope.EnemyRandom4 |
+    ConsumableScope.ActorAlive |
+    ConsumableScope.ActorAliveAll |
+    ConsumableScope.ActorDead |
+    ConsumableScope.ActorDeadAll |
+    ConsumableScope.User |
+    ConsumableScope.Actor |
+    ConsumableScope.ActorAll |
+    ConsumableScope.All
 
   namespace TroopEventPageSpan {
     export type Battle = 0
@@ -201,6 +208,10 @@ declare namespace MZ {
     AnimationDisplayType.CenterOfTargets |
     AnimationDisplayType.CenterOfScreen
 
+  export interface HasTrait {
+    traits: Trait[]
+  }
+
   export interface Trait {
     code: number;
     dataId: number;
@@ -257,10 +268,10 @@ declare namespace MZ {
     animationId: AnimationID;
     damage: Damage;
     effects: Effect[];
-    hitType: HitType;
-    occasion: Occasion;
+    hitType: ConsumableHitType;
+    occasion: ConsumableOccasion;
     repeats: number;
-    scope: Scope;
+    scope: ConsumableScope;
     speed: number;
     successRate: number;
     tpGain: number;
@@ -279,6 +290,7 @@ declare namespace MZ {
 
   export interface DataItem extends DataConsumable {
     itypeId: ItemTypeID;
+    consumable: boolean;
     price: number;
   }
 

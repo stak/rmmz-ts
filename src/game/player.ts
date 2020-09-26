@@ -141,7 +141,7 @@ export class Game_Player extends Game_Character {
     }
   };
 
-  vehicle(): Game_Vehicle {
+  vehicle(): Game_Vehicle | null {
     return $gameMap.vehicle(this._vehicleType);
   };
 
@@ -198,7 +198,7 @@ export class Game_Player extends Game_Character {
     this.center(x, y);
     this.makeEncounterCount();
     if (this.isInVehicle()) {
-        this.vehicle().refresh();
+        this.vehicle()!.refresh();
     }
     this._followers.synchronize(x, y, this.direction());
   };
@@ -298,7 +298,7 @@ export class Game_Player extends Game_Character {
     if (this._vehicleGettingOn || this._vehicleGettingOff) {
         return false;
     }
-    if (this.isInVehicle() && !this.vehicle().canMove()) {
+    if (this.isInVehicle() && !this.vehicle()!.canMove()) {
         return false;
     }
     return true;
@@ -376,26 +376,26 @@ export class Game_Player extends Game_Character {
         } else if (this._vehicleGettingOff) {
             this.updateVehicleGetOff();
         } else {
-            this.vehicle().syncWithPlayer();
+            this.vehicle()!.syncWithPlayer();
         }
     }
   };
 
   updateVehicleGetOn(): void {
     if (!this.areFollowersGathering() && !this.isMoving()) {
-        this.setDirection(this.vehicle().direction());
-        this.setMoveSpeed(this.vehicle().moveSpeed());
+        this.setDirection(this.vehicle()!.direction());
+        this.setMoveSpeed(this.vehicle()!.moveSpeed());
         this._vehicleGettingOn = false;
         this.setTransparent(true);
         if (this.isInAirship()) {
             this.setThrough(true);
         }
-        this.vehicle().getOn();
+        this.vehicle()!.getOn();
     }
   };
 
   updateVehicleGetOff(): void {
-    if (!this.areFollowersGathering() && this.vehicle().isLowest()) {
+    if (!this.areFollowersGathering() && this.vehicle()!.isLowest()) {
         this._vehicleGettingOff = false;
         this._vehicleType = "walk";
         this.setTransparent(false);
@@ -596,12 +596,12 @@ export class Game_Player extends Game_Character {
   };
 
   getOffVehicle(): boolean {
-    if (this.vehicle().isLandOk(this.x, this.y, this.direction())) {
+    if (this.vehicle()!.isLandOk(this.x, this.y, this.direction())) {
         if (this.isInAirship()) {
             this.setDirection(2);
         }
         this._followers.synchronize(this.x, this.y, this.direction());
-        this.vehicle().getOff();
+        this.vehicle()!.getOff();
         if (!this.isInAirship()) {
             this.forceMoveForward();
             this.setTransparent(false);
