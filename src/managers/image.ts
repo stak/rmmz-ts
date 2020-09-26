@@ -1,4 +1,3 @@
-import { BitmapFontLoader } from 'pixi.js';
 import { Utils } from '../dom';
 import { Bitmap } from '../pixi';
 

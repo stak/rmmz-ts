@@ -4,7 +4,7 @@ import { SceneManager } from '.';
 import { TextManager } from '.';
 import { $gameMessage, $gameParty, $gameScreen, $gameSystem, $gameTroop } from '.';
 import { $dataSystem } from '.';
-import { Game_Action, Game_Actor, Game_Battler } from '../game';
+import { Game_Action, Game_Actor, Game_Enemy, Game_Battler } from '../game';
 import { Window_BattleLog } from '../windows'
 import { Spriteset_Battle } from '../sprites';
 import { Scene_Gameover } from '../scenes';
@@ -25,7 +25,7 @@ type BattlePhase = typeof BattlePhase[keyof typeof BattlePhase];
 type BattleRewords = {
   gold?: number
   exp?: number
-  items?: object[] // TODO: typing $Data
+  items?: MZ.DataItemBase[]
 };
 
 type BattleEventCallback = (result: number) => void;
@@ -55,7 +55,7 @@ export class BattleManager {
   static _actionBattlers: Game_Battler[]
   static _subject: Game_Battler | null
   static _action: Game_Action | null
-  static _targets: Game_Battler[]
+  static _targets: (Game_Battler | null)[]
   static _logWindow: Window_BattleLog | null
   static _spriteset: Spriteset_Battle | null
   static _escapeRatio: number
@@ -269,7 +269,7 @@ export class BattleManager {
   };
 
   static needsActorInputCancel(): boolean {
-    return this._currentActor && !this._currentActor.canInput();
+    return !!this._currentActor && !this._currentActor.canInput();
   };
 
   static isTpbMainPhase(): boolean {
@@ -308,7 +308,7 @@ export class BattleManager {
     return this._escaped;
   };
 
-  static actor(): Game_Actor {
+  static actor(): Game_Actor | null {
     return this._currentActor;
   };
 
@@ -342,7 +342,7 @@ export class BattleManager {
     }
   };
 
-  static inputtingAction(): void {
+  static inputtingAction(): Game_Action | null {
     return this._currentActor ? this._currentActor.inputtingAction() : null;
   };
 
@@ -390,7 +390,7 @@ export class BattleManager {
 
   static changeCurrentActor(forward: boolean): void {
     const members = $gameParty.battleMembers();
-    let actor = this._currentActor;
+    let actor = this._currentActor!;
     for (;;) {
         const currentIndex = members.indexOf(actor);
         actor = members[currentIndex + (forward ? 1 : -1)];
@@ -493,13 +493,13 @@ export class BattleManager {
 
   static processTurn(): void {
     const subject = this._subject;
-    const action = subject.currentAction();
+    const action = subject!.currentAction();
     if (action) {
         action.prepare();
         if (action.isValid()) {
             this.startAction();
         }
-        subject.removeCurrentAction();
+        subject!.removeCurrentAction();
     } else {
         this.endAction();
         this._subject = null;
@@ -551,14 +551,14 @@ export class BattleManager {
         if (!battler) {
             return null;
         }
-        if (battler.isBattleMember() && battler.isAlive()) {
+        if ((battler as Game_Actor | Game_Enemy).isBattleMember() && battler.isAlive()) {
             return battler;
         }
     }
   };
 
   static allBattleMembers(): Game_Battler[] {
-    return $gameParty.battleMembers().concat($gameTroop.members());
+    return ($gameParty.battleMembers() as Game_Battler[]).concat($gameTroop.members());
   };
 
   static makeActionOrders(): void {
@@ -578,12 +578,12 @@ export class BattleManager {
 
   static startAction(): void {
     const subject = this._subject;
-    const action = subject.currentAction();
+    const action = subject!.currentAction();
     const targets = action.makeTargets();
     this._phase = "action";
     this._action = action;
     this._targets = targets;
-    subject.useItem(action.item());
+    subject!.useItem(action.item());
     this._action.applyGlobal();
     this._logWindow.startAction(subject, action, targets);
   };
@@ -591,7 +591,7 @@ export class BattleManager {
   static updateAction(): void {
     const target = this._targets.shift();
     if (target) {
-        this.invokeAction(this._subject, target);
+        this.invokeAction(this._subject!, target);
     } else {
         this.endAction();
     }
@@ -600,17 +600,17 @@ export class BattleManager {
   static endAction(): void {
     this._logWindow.endAction(this._subject);
     this._phase = "turn";
-    if (this._subject.numActions() === 0) {
-        this.endBattlerActions(this._subject);
+    if (this._subject!.numActions() === 0) {
+        this.endBattlerActions(this._subject!);
         this._subject = null;
     }
   };
 
   static invokeAction(subject: Game_Battler, target: Game_Battler): void {
     this._logWindow.push("pushBaseLine");
-    if (Math.random() < this._action.itemCnt(target)) {
+    if (Math.random() < this._action!.itemCnt(target)) {
         this.invokeCounterAttack(subject, target);
-    } else if (Math.random() < this._action.itemMrf(target)) {
+    } else if (Math.random() < this._action!.itemMrf(target)) {
         this.invokeMagicReflection(subject, target);
     } else {
         this.invokeNormalAction(subject, target);
@@ -621,7 +621,7 @@ export class BattleManager {
 
   static invokeNormalAction(subject: Game_Battler, target: Game_Battler): void {
     const realTarget = this.applySubstitute(target);
-    this._action.apply(realTarget);
+    this._action!.apply(realTarget);
     this._logWindow.displayActionResults(subject, realTarget);
   };
 
@@ -634,15 +634,15 @@ export class BattleManager {
   };
 
   static invokeMagicReflection(subject: Game_Battler, target: Game_Battler): void {
-    this._action._reflectionTarget = target;
+    this._action!._reflectionTarget = target;
     this._logWindow.displayReflection(target);
-    this._action.apply(subject);
+    this._action!.apply(subject);
     this._logWindow.displayActionResults(target, subject);
   };
 
-  static applySubstitute(target: Game_Battler): void {
+  static applySubstitute(target: Game_Battler): Game_Battler {
     if (this.checkSubstitute(target)) {
-        const substitute = target.friendsUnit().substituteBattler();
+        const substitute = (target as Game_Actor | Game_Enemy).friendsUnit().substituteBattler();
         if (substitute && target !== substitute) {
             this._logWindow.displaySubstitute(substitute, target);
             return substitute;
@@ -652,7 +652,7 @@ export class BattleManager {
   };
 
   static checkSubstitute(target: Game_Battler): boolean {
-    return target.isDying() && !this._action.isCertainHit();
+    return target.isDying() && !this._action!.isCertainHit();
   };
 
   static isActionForced(): boolean {
@@ -855,12 +855,12 @@ export class BattleManager {
   static gainExp(): void {
     const exp = this._rewards.exp;
     for (const actor of $gameParty.allMembers()) {
-        actor.gainExp(exp);
+        actor.gainExp(exp!);
     }
   };
 
   static gainGold(): void {
-    $gameParty.gainGold(this._rewards.gold);
+    $gameParty.gainGold(this._rewards.gold!);
   };
 
   static gainDropItems(): void {

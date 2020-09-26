@@ -70,22 +70,22 @@ export let $dataCommonEvents: MZ.DataCommonEvent[];
 export let $dataSystem: MZ.DataSystem;
 export let $dataMapInfos: MZ.DataMapInfo[];
 export let $dataMap: MZ.DataMap;
-export let $gameTemp: Game_Temp = null;
-export let $gameSystem: Game_System = null;
-export let $gameScreen: Game_Screen = null;
-export let $gameTimer: Game_Timer = null;
-export let $gameMessage: Game_Message = null;
-export let $gameSwitches: Game_Switches = null;
-export let $gameVariables: Game_Variables = null;
-export let $gameSelfSwitches: Game_SelfSwitches = null;
-export let $gameActors: Game_Actors = null;
-export let $gameParty: Game_Party = null;
-export let $gameTroop: Game_Troop = null;
-export let $gameMap: Game_Map = null;
-export let $gamePlayer: Game_Player = null;
-export let $testEvent: any = null;
+export let $gameTemp: Game_Temp;
+export let $gameSystem: Game_System;
+export let $gameScreen: Game_Screen;
+export let $gameTimer: Game_Timer;
+export let $gameMessage: Game_Message;
+export let $gameSwitches: Game_Switches;
+export let $gameVariables: Game_Variables;
+export let $gameSelfSwitches: Game_SelfSwitches;
+export let $gameActors: Game_Actors;
+export let $gameParty: Game_Party;
+export let $gameTroop: Game_Troop;
+export let $gameMap: Game_Map;
+export let $gamePlayer: Game_Player;
+export let $testEvent: any;
 
-// FIXME: is there any trick to do this like Reflection?
+// FIXME: any trick to do this like Reflection?
 function setModuleVars(name: string, value: any): void {
   (window as any)[name] = value;
   switch (name) {
@@ -433,20 +433,20 @@ export class DataManager {
     return Utils.isOptionValid("etest");
   };
 
-  static isSkill(item: object): boolean {
-    return item && $dataSkills.includes(item as MZ.DataSkill);
+  static isSkill(item: object | null): boolean {
+    return !!item && $dataSkills.includes(item as MZ.DataSkill);
   };
 
-  static isItem(item: object): boolean {
-    return item && $dataItems.includes(item as MZ.DataItem);
+  static isItem(item: object | null): boolean {
+    return !!item && $dataItems.includes(item as MZ.DataItem);
   };
 
-  static isWeapon(item: object): boolean {
-    return item && $dataWeapons.includes(item as MZ.DataWeapon);
+  static isWeapon(item: object | null): boolean {
+    return !!item && $dataWeapons.includes(item as MZ.DataWeapon);
   };
 
-  static isArmor(item: object): boolean {
-    return item && $dataArmors.includes(item as MZ.DataArmor);
+  static isArmor(item: object | null): boolean {
+    return !!item && $dataArmors.includes(item as MZ.DataArmor);
   };
 
   static createGameObjects(): void {
