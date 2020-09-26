@@ -729,7 +729,7 @@ declare namespace MZ {
       characterName: string
       characterIndex: number;
       tileId: number;
-      direction: number;
+      direction: MZ.MoveDirection;
       pattern: number;
   }
 
