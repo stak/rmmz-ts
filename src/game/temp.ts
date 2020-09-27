@@ -5,7 +5,7 @@ import { $dataCommonEvents, $dataAnimations } from '../managers';
 import { MZ } from '../MZ';
 
 interface AnimationRequest {
-  targets: Game_CharacterBase[],
+  targets: (Game_CharacterBase | Game_Battler)[],
   animationId: MZ.AnimationID,
   mirror: boolean
 }
@@ -133,7 +133,7 @@ export class Game_Temp {
     return this._commonEventQueue.length > 0;
   };
 
-  requestAnimation(targets: Game_CharacterBase[], animationId: MZ.AnimationID, mirror: boolean = false): void {
+  requestAnimation(targets: (Game_CharacterBase | Game_Battler)[], animationId: MZ.AnimationID, mirror: boolean = false): void {
     if ($dataAnimations[animationId]) {
         const request: AnimationRequest = {
             targets: targets,
@@ -142,8 +142,8 @@ export class Game_Temp {
         };
         this._animationQueue.push(request);
         for (const target of targets) {
-            if (target.startAnimation) {
-                target.startAnimation();
+            if ((target as any).startAnimation) {
+                (target as any).startAnimation();
             }
         }
     }

@@ -321,7 +321,7 @@ export class Game_Screen {
   showPicture(
     pictureId: MZ.ID,
     name: string,
-    origin: never,
+    origin: number,
     x: number,
     y: number,
     scaleX: number,
@@ -339,7 +339,7 @@ export class Game_Screen {
   movePicture(
     pictureId: MZ.ID,
     name: string,
-    origin: never,
+    origin: number,
     x: number,
     y: number,
     scaleX: number,
@@ -347,7 +347,7 @@ export class Game_Screen {
     opacity: number,
     blendMode: number,
     duration: number,
-    easingType: number
+    easingType?: number
   ) {
     const picture = this.picture(pictureId);
     if (picture) {

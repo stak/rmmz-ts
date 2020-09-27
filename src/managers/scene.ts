@@ -359,7 +359,7 @@ export class SceneManager {
     Graphics.stopGameLoop();
   };
 
-  static prepareNextScene(): void {
+  static prepareNextScene(..._: any): void {
     this._nextScene.prepare(...arguments);
   };
 

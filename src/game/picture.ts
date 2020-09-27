@@ -22,7 +22,7 @@ export class Game_Picture {
   _targetOpacity = 255;
   _duration = 0;
   _wholeDuration = 0;
-  _easingType = 0;
+  _easingType?: number = 0;
   _easingExponent = 0;
 
   _tone: MZ.RGBAColorArray | null = null;
@@ -135,7 +135,7 @@ export class Game_Picture {
     this.initRotation();
   };
 
-  move(origin: number, x: number, y: number, scaleX: number, scaleY: number, opacity: number, blendMode: number, duration: number, easingType: number): void {
+  move(origin: number, x: number, y: number, scaleX: number, scaleY: number, opacity: number, blendMode: number, duration: number, easingType?: number): void {
     this._origin = origin;
     this._targetX = x;
     this._targetY = y;
