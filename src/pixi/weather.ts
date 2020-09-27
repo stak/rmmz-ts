@@ -3,7 +3,7 @@ import { Bitmap, Sprite, Point } from '.';
 import { ScreenSprite } from '.';
 import { Graphics } from '../dom';
 
-type WeatherType = "none" | "rain" | "storm" | "snow"
+export type WeatherType = "none" | "rain" | "storm" | "snow"
 
 class WeatherSprite extends Sprite {
   ax = 0

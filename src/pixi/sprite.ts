@@ -16,7 +16,7 @@ export class Sprite extends PIXI.Sprite {
   static _emptyBaseTexture: PIXI.BaseTexture | null = null
   static _counter = 0
   spriteId = 0
-  _bitmap?: Bitmap
+  _bitmap: Bitmap | null = null
   _frame?: Rectangle
   _hue = 0
   _blendColor: MZ.RGBAColorArray = [0, 0, 0, 0]
@@ -46,7 +46,7 @@ export class Sprite extends PIXI.Sprite {
     // dup with constructor super()
     PIXI.Sprite.call(this, texture);
     this.spriteId = Sprite._counter++;
-    this._bitmap = bitmap;
+    this._bitmap = bitmap!;
     this._frame = frame;
     this._hue = 0;
     this._blendColor = [0, 0, 0, 0];
@@ -64,10 +64,10 @@ export class Sprite extends PIXI.Sprite {
   * @type Bitmap
   * @name Sprite#bitmap
   */
-  get bitmap(): Bitmap {
-    return this._bitmap!;
+  get bitmap(): Bitmap | null {
+    return this._bitmap;
   }
-  set bitmap(value: Bitmap) {
+  set bitmap(value: Bitmap | null) {
     if (this._bitmap !== value) {
       this._bitmap = value;
       this._onBitmapChange();
@@ -141,7 +141,7 @@ export class Sprite extends PIXI.Sprite {
   /**
   * Destroys the sprite.
   */
-  destroy(): void {
+  destroy(option?: any): void {
     const options = { children: true, texture: true };
     super.destroy(options);
   };

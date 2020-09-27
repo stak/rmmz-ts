@@ -1,5 +1,6 @@
 import { Game_Picture } from '.';
 import { $gameParty } from '../managers';
+import { WeatherType } from '../pixi/weather';
 import { MZ } from '../MZ';
 
 //-----------------------------------------------------------------------------
@@ -27,7 +28,7 @@ export class Game_Screen {
   _zoomScale = 1;
   _zoomScaleTarget = 1;
   _zoomDuration = 0;
-  _weatherType = "none";
+  _weatherType: WeatherType = "none";
   _weatherPower = 0;
   _weatherPowerTarget = 0;
   _weatherDuration = 0;
@@ -92,7 +93,7 @@ export class Game_Screen {
     return this._zoomScale;
   };
 
-  weatherType(): string {
+  weatherType(): WeatherType {
     return this._weatherType;
   };
 
@@ -207,7 +208,7 @@ export class Game_Screen {
     this._zoomScale = scale;
   };
 
-  changeWeather(type: string, power: number, duration: number): void {
+  changeWeather(type: WeatherType, power: number, duration: number): void {
     if (type !== "none" || duration === 0) {
         this._weatherType = type;
     }

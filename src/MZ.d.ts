@@ -432,8 +432,11 @@ declare namespace MZ {
     speed: number;
   }
 
-  export interface FlashTiming {
+  export interface Timing {
     frame: number;
+  }
+
+  export interface FlashTiming extends Timing {
     duration: number;
     color: RGBAColorArray;
   }
@@ -444,8 +447,7 @@ declare namespace MZ {
       z: number;
   }
 
-  export interface SoundTiming {
-      frame: number;
+  export interface SoundTiming extends Timing {
       se: AudioParam;
   }
 
@@ -778,6 +780,31 @@ declare namespace MZ {
       list: EventCommand[];
       trigger: CommonEventTrigger;
       switchId: SwitchID;
+  }
+
+  export interface DataAnimationMV extends Data {
+    animation1Hue: number;
+    animation1Name: string;
+    animation2Hue: number;
+    animation2Name: string;
+    frames: number[][][];
+    position: number;
+    timings: MVTiming[];
+  }
+
+  export interface MVTiming {
+      flashColor: RGBAColorArray;
+      flashDuration: number;
+      flashScope: number;
+      frame: number;
+      se: MVTimingSE;
+  }
+
+  export interface MVTimingSE {
+      name: string;
+      pan: number;
+      pitch: number;
+      volume: number;
   }
 }
 

@@ -1,17 +1,17 @@
-import { Game_Battler, Game_CharacterBase } from '.';
+import { Game_Battler, Game_Character } from '.';
 import { Utils } from '../dom';
 import { $gameParty } from '../managers';
 import { $dataCommonEvents, $dataAnimations } from '../managers';
 import { MZ } from '../MZ';
 
-interface AnimationRequest {
-  targets: (Game_CharacterBase | Game_Battler)[],
+export interface AnimationRequest {
+  targets: (Game_Character | Game_Battler)[],
   animationId: MZ.AnimationID,
   mirror: boolean
 }
 
-interface BalloonRequest {
-  target: Game_CharacterBase,
+export interface BalloonRequest {
+  target: Game_Character,
   balloonId: MZ.ID
 }
 
@@ -133,7 +133,7 @@ export class Game_Temp {
     return this._commonEventQueue.length > 0;
   };
 
-  requestAnimation(targets: (Game_CharacterBase | Game_Battler)[], animationId: MZ.AnimationID, mirror: boolean = false): void {
+  requestAnimation(targets: (Game_Character | Game_Battler)[], animationId: MZ.AnimationID, mirror: boolean = false): void {
     if ($dataAnimations[animationId]) {
         const request: AnimationRequest = {
             targets: targets,
@@ -153,7 +153,7 @@ export class Game_Temp {
     return this._animationQueue.shift()!;
   };
 
-  requestBalloon(target: Game_CharacterBase, balloonId: MZ.ID): void {
+  requestBalloon(target: Game_Character, balloonId: MZ.ID): void {
     const request: BalloonRequest = {
       target: target,
       balloonId: balloonId

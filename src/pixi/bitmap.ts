@@ -182,7 +182,7 @@ export class Bitmap {
   * @type PIXI.BaseTexture
   * @name Bitmap#baseTexture
   */
-  get baseTexture(): PIXI.BaseTexture {
+  get baseTexture(): PIXI.BaseTexture | null {
     return this._baseTexture;
   }
 
@@ -455,7 +455,7 @@ export class Bitmap {
     height: number,
     color1: string,
     color2: string,
-    vertical: boolean
+    vertical?: boolean
   ) {
     const context = this.context;
     const x1 = vertical ? x : x + width;
