@@ -58,7 +58,7 @@ export class Game_Actor extends Game_Battler {
     this.initialize(...arguments);
   }
 
-  get level() {
+  get level(): number {
     return this._level;
   }
 

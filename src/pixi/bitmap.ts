@@ -182,7 +182,7 @@ export class Bitmap {
   * @type PIXI.BaseTexture
   * @name Bitmap#baseTexture
   */
-  get baseTexture() {
+  get baseTexture(): PIXI.BaseTexture {
     return this._baseTexture;
   }
 
