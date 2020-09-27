@@ -26,7 +26,7 @@ export class TextManager {
     return $dataSystem.terms.messages[messageId] || "";
   };
 
-  get currencyUnit(): string {
+  static get currencyUnit(): string {
       return $dataSystem.currencyUnit;
   }
 
