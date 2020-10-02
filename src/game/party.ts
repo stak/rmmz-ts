@@ -306,7 +306,7 @@ export class Game_Party extends Game_Unit {
     }
   };
 
-  canUse(item: MZ.DataItemBase): boolean {
+  canUse(item: MZ.DataItemBase | null): boolean {
     return this.members().some(actor => actor.canUse(item));
   };
 
@@ -372,7 +372,7 @@ export class Game_Party extends Game_Unit {
     this._targetActorId = actor.actorId();
   };
 
-  lastItem(): object | null {
+  lastItem(): MZ.DataItemBase | null {
     return this._lastItem.object();
   };
 

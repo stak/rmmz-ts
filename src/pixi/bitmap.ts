@@ -330,7 +330,17 @@ export class Bitmap {
   * @param {number} [dw=sw] The width to draw the image in the destination.
   * @param {number} [dh=sh] The height to draw the image in the destination.
   */
-  blt(source: Bitmap, sx: number, sy: number, sw: number, sh: number, dx: number, dy: number, dw: number, dh: number): void {
+  blt(
+    source: Bitmap,
+    sx: number,
+    sy: number,
+    sw: number,
+    sh: number,
+    dx: number,
+    dy: number,
+    dw?: number,
+    dh?: number
+  ): void {
     dw = dw || sw;
     dh = dh || sh;
     try {
@@ -499,14 +509,14 @@ export class Bitmap {
   * @param {number} lineHeight - The height of the text line.
   * @param {string} align - The alignment of the text.
   */
-  drawText(text: string, x: number, y: number, maxWidth: number, lineHeight: number, align: CanvasTextAlign): void {
+  drawText(text: string, x: number, y: number, maxWidth?: number, lineHeight?: number, align?: CanvasTextAlign): void {
     // [Note] Different browser makes different rendering with
     //   textBaseline == 'top'. So we use 'alphabetic' here.
     const context = this.context;
     const alpha = context.globalAlpha;
     maxWidth = maxWidth || 0xffffffff;
     let tx = x;
-    let ty = Math.round(y + lineHeight / 2 + this.fontSize * 0.35);
+    let ty = Math.round(y + lineHeight! / 2 + this.fontSize * 0.35);
     if (align === "center") {
         tx += maxWidth / 2;
     }
@@ -515,7 +525,7 @@ export class Bitmap {
     }
     context.save();
     context.font = this._makeFontNameText();
-    context.textAlign = align;
+    context.textAlign = align!;
     context.textBaseline = "alphabetic";
     context.globalAlpha = 1;
     this._drawTextOutline(text, tx, ty, maxWidth);

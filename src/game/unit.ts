@@ -113,7 +113,7 @@ export class Game_Unit {
     }
   };
 
-  select(activeMember: Game_Battler): void {
+  select(activeMember: Game_Battler | null): void {
     for (const member of this.members()) {
         if (member === activeMember) {
             member.select();

@@ -70,6 +70,17 @@ declare namespace MZ {
       pos?: number;
   }
 
+  export type ButtonType =
+    "cancel" |
+    "pageup" |
+    "pagedown" |
+    "down" |
+    "up" |
+    "down2" |
+    "up2" |
+    "ok" |
+    "menu";
+
   namespace ItemKind {
     export type Item = 1
     export type Weapon = 2
@@ -227,6 +238,22 @@ declare namespace MZ {
     code : number;
     indent: null;
     parameters?: any[]; // TODO: typing
+  }
+
+  export interface TextState {
+    text: string
+    index: number
+    x: number
+    y: number
+    width: number
+    height: number
+    startX: number
+    startY: number
+    rtl: boolean
+    buffer: string
+    drawing: boolean
+    outputWidth: number
+    outputHeight: number
   }
 
 
@@ -516,8 +543,8 @@ declare namespace MZ {
       // internal use
       editMapId: MapID;
       locale: string;
-      switches: Array<''>;
-      variables: Array<''>;
+      switches: Array<'' | number>;
+      variables: Array<'' | number>;
       versionId: number;
   }
 
@@ -806,6 +833,14 @@ declare namespace MZ {
       pitch: number;
       volume: number;
   }
+
+  export type SaveFileInfo = {
+    title: string
+    characters: Array<[string, number]>
+    faces: Array<[string, number]>
+    playtime: string
+    timestamp: number
+  };
 }
 
 export { MZ };

@@ -19,14 +19,6 @@ import {
 } from '../game'
 import { MZ } from '../MZ';
 
-type SaveFileInfo = {
-  title: string
-  characters: Array<[string, number]>
-  faces: Array<[string, number]>
-  playtime: string
-  timestamp: number
-};
-
 type SaveContents = {
   system: Game_System,
   screen: Game_Screen,
@@ -256,7 +248,7 @@ export class DataManager {
     throw new Error("This is a static class");
   }
 
-  static _globalInfo: Array<SaveFileInfo> | null = null;
+  static _globalInfo: Array<MZ.SaveFileInfo> | null = null;
   static _errors: Array<XhrError> = [];
 
   static _databaseFiles = [
@@ -279,7 +271,7 @@ export class DataManager {
   static loadGlobalInfo(): void {
     StorageManager.loadObject("global")
         .then((globalInfo: object) => {
-            this._globalInfo = globalInfo as SaveFileInfo[];
+            this._globalInfo = globalInfo as MZ.SaveFileInfo[];
             this.removeInvalidGlobalInfo();
             return 0;
         })
@@ -433,19 +425,19 @@ export class DataManager {
     return Utils.isOptionValid("etest");
   };
 
-  static isSkill(item: object | null): boolean {
+  static isSkill(item: MZ.DataItemBase | null): boolean {
     return !!item && $dataSkills.includes(item as MZ.DataSkill);
   };
 
-  static isItem(item: object | null): boolean {
+  static isItem(item: MZ.DataItemBase | null): boolean {
     return !!item && $dataItems.includes(item as MZ.DataItem);
   };
 
-  static isWeapon(item: object | null): boolean {
+  static isWeapon(item: MZ.DataItemBase | null): boolean {
     return !!item && $dataWeapons.includes(item as MZ.DataWeapon);
   };
 
-  static isArmor(item: object | null): boolean {
+  static isArmor(item: MZ.DataItemBase | null): boolean {
     return !!item && $dataArmors.includes(item as MZ.DataArmor);
   };
 
@@ -526,7 +518,7 @@ export class DataManager {
     }
   };
 
-  static loadSavefileImages(info: SaveFileInfo): void {
+  static loadSavefileImages(info: MZ.SaveFileInfo): void {
     if (info.characters && Symbol.iterator in info.characters) {
         for (const character of info.characters) {
             ImageManager.loadCharacter(character[0]);
@@ -543,7 +535,7 @@ export class DataManager {
     return 20;
   };
 
-  static savefileInfo(savefileId: number): SaveFileInfo | null {
+  static savefileInfo(savefileId: number): MZ.SaveFileInfo | null {
     const globalInfo = this._globalInfo;
     return globalInfo![savefileId] ? globalInfo![savefileId] : null;
   };
@@ -587,8 +579,8 @@ export class DataManager {
     }
   };
 
-  static makeSavefileInfo(): SaveFileInfo {
-    const info: SaveFileInfo = {} as SaveFileInfo;
+  static makeSavefileInfo(): MZ.SaveFileInfo {
+    const info: MZ.SaveFileInfo = {} as MZ.SaveFileInfo;
     info.title = $dataSystem.gameTitle;
     info.characters = $gameParty.charactersForSavefile();
     info.faces = $gameParty.facesForSavefile();

@@ -793,7 +793,7 @@ export class Game_BattlerBase {
     return this.meetsUsableItemConditions(item) && $gameParty.hasItem(item);
   };
 
-  canUse(item: MZ.DataItemBase): boolean {
+  canUse(item: MZ.DataItemBase | null): boolean {
     if (!item) {
         return false;
     } else if (DataManager.isSkill(item)) {
@@ -805,7 +805,7 @@ export class Game_BattlerBase {
     }
   };
 
-  canEquip(item: MZ.DataItemBase): boolean {
+  canEquip(item: MZ.DataItemBase | null): boolean {
     if (!item) {
         return false;
     } else if (DataManager.isWeapon(item)) {

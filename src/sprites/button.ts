@@ -2,17 +2,7 @@ import { Sprite_Clickable } from '.';
 import { Rectangle } from '../pixi';
 import { ImageManager } from '../managers';
 import { Input } from '../dom';
-
-type ButtonType =
-  "cancel" |
-  "pageup" |
-  "pagedown" |
-  "down" |
-  "up" |
-  "down2" |
-  "up2" |
-  "ok" |
-  "menu";
+import { MZ } from '../MZ';
 
 interface ButtonRegion {
   x: number
@@ -25,12 +15,12 @@ interface ButtonRegion {
 // The sprite for displaying a button.
 
 export class Sprite_Button extends Sprite_Clickable {
-  _buttonType?: ButtonType;
+  _buttonType?: MZ.ButtonType;
   _clickHandler: (() => void) | null = null;
   _coldFrame: Rectangle | null = null;
   _hotFrame: Rectangle | null = null;
 
-  constructor(buttonType: ButtonType)
+  constructor(buttonType: MZ.ButtonType)
   constructor(thisClass: Constructable<Sprite_Button>)
   constructor(arg?: any) {
     super(Sprite_Clickable);
@@ -40,7 +30,7 @@ export class Sprite_Button extends Sprite_Clickable {
     this.initialize(...arguments);
   }
   
-  initialize(buttonType?: ButtonType): void {
+  initialize(buttonType?: MZ.ButtonType): void {
     super.initialize();
     this._buttonType = buttonType!;
     this._clickHandler = null;
@@ -74,7 +64,7 @@ export class Sprite_Button extends Sprite_Clickable {
   };
 
   buttonData(): ButtonRegion {
-    const buttonTable: {[key in ButtonType]: ButtonRegion} = {
+    const buttonTable: {[key in MZ.ButtonType]: ButtonRegion} = {
         cancel: { x: 0, w: 2 },
         pageup: { x: 2, w: 1 },
         pagedown: { x: 3, w: 1 },

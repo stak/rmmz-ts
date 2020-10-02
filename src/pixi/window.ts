@@ -159,7 +159,7 @@ export class Window extends PIXI.Container {
   * @name Window#contents
   */
   get contents(): Bitmap {
-    return this._contentsSprite!.bitmap;
+    return this._contentsSprite!.bitmap!;
   }
   set contents(value: Bitmap) {
     this._contentsSprite!.bitmap = value;
@@ -172,7 +172,7 @@ export class Window extends PIXI.Container {
   * @name Window#contentsBack
   */
   get contentsBack(): Bitmap {
-    return this._contentsBackSprite!.bitmap;
+    return this._contentsBackSprite!.bitmap!;
   }
   set contentsBack(value: Bitmap) {
     this._contentsBackSprite!.bitmap = value;
@@ -334,7 +334,7 @@ export class Window extends PIXI.Container {
   /**
   * Destroys the window.
   */
-  destroy(): void {
+  destroy(option?: any): void {
     const options = { children: true, texture: true };
     super.destroy(options);
   };
@@ -592,7 +592,7 @@ export class Window extends PIXI.Container {
     sprite.move(m, m);
     sprite.scale.x = w / 96;
     sprite.scale.y = h / 96;
-    tilingSprite.bitmap = this._windowskin;
+    tilingSprite.bitmap = this._windowskin!;
     tilingSprite.setFrame(0, 96, 96, 96);
     tilingSprite.move(0, 0, w, h);
     tilingSprite.scale.x = 96 / w;
