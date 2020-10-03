@@ -29,7 +29,7 @@ export class Window_SavefileList extends Window_Selectable {
     this._autosave = false;
   };
 
-  setMode(mode: string, autosave: boolean): void {
+  setMode(mode: string | null, autosave: boolean): void {
     this._mode = mode;
     this._autosave = autosave;
     this.refresh();

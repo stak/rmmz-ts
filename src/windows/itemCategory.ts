@@ -33,7 +33,7 @@ export class Window_ItemCategory extends Window_HorzCommand {
   update(): void {
     super.update();
     if (this._itemWindow) {
-        this._itemWindow.setCategory(this.currentSymbol());
+        this._itemWindow.setCategory(this.currentSymbol()!);
     }
   };
 

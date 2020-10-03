@@ -131,7 +131,7 @@ export class Sprite_Actor extends Sprite_Battler {
             this._mainSprite!.bitmap = null;
         }
         this.startEntryMotion();
-        this._stateSprite.setup(battler);
+        this._stateSprite!.setup(battler);
     }
   };
 

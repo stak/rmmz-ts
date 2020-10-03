@@ -21,7 +21,7 @@ export class Window_Message extends Window_Base {
   _pauseSkip = false
   _faceBitmap: Bitmap | null = null
   _textState: MZ.TextState | null = null
-  _goldWindow: Window_Gold = null
+  _goldWindow: Window_Gold | null = null
   _nameBoxWindow: Window_NameBox | null = null
   _choiceListWindow: Window_ChoiceList | null = null
   _numberInputWindow: Window_NumberInput | null = null
@@ -112,7 +112,7 @@ export class Window_Message extends Window_Base {
   };
 
   synchronizeNameBox(): void {
-    this._nameBoxWindow.openness = this.openness;
+    this._nameBoxWindow!.openness = this.openness;
   };
 
   canStart(): boolean {
@@ -129,7 +129,7 @@ export class Window_Message extends Window_Base {
     this.updatePlacement();
     this.updateBackground();
     this.open();
-    this._nameBoxWindow.start();
+    this._nameBoxWindow!.start();
   };
 
   newLineX(textState: MZ.TextState): number {
@@ -156,7 +156,7 @@ export class Window_Message extends Window_Base {
 
   terminateMessage(): void {
     this.close();
-    this._goldWindow.close();
+    this._goldWindow!.close();
     $gameMessage.clear();
   };
 
@@ -202,9 +202,9 @@ export class Window_Message extends Window_Base {
 
   isAnySubWindowActive(): boolean {
     return (
-        this._choiceListWindow.active ||
-        this._numberInputWindow.active ||
-        this._eventItemWindow.active
+        this._choiceListWindow!.active ||
+        this._numberInputWindow!.active ||
+        this._eventItemWindow!.active
     );
   };
 
@@ -270,13 +270,13 @@ export class Window_Message extends Window_Base {
 
   startInput(): boolean {
     if ($gameMessage.isChoice()) {
-        this._choiceListWindow.start();
+        this._choiceListWindow!.start();
         return true;
     } else if ($gameMessage.isNumberInput()) {
-        this._numberInputWindow.start();
+        this._numberInputWindow!.start();
         return true;
     } else if ($gameMessage.isItemChoice()) {
-        this._eventItemWindow.start();
+        this._eventItemWindow!.start();
         return true;
     } else {
         return false;
@@ -324,7 +324,7 @@ export class Window_Message extends Window_Base {
   };
 
   updateSpeakerName(): void {
-    this._nameBoxWindow.setName($gameMessage.speakerName());
+    this._nameBoxWindow!.setName($gameMessage.speakerName());
   };
 
   loadMessageFace(): void {
@@ -378,7 +378,7 @@ export class Window_Message extends Window_Base {
   processEscapeCharacter(code: string, textState: MZ.TextState): void {
     switch (code) {
         case "$":
-            this._goldWindow.open();
+            this._goldWindow!.open();
             break;
         case ".":
             this.startWait(15);

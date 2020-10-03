@@ -63,7 +63,7 @@ export class Sprite_Enemy extends Sprite_Battler {
     super.setBattler(battler);
     this._enemy = battler;
     this.setHome(battler.screenX(), battler.screenY());
-    this._stateIconSprite.setup(battler);
+    this._stateIconSprite!.setup(battler);
   };
 
   update(): void {
@@ -119,9 +119,9 @@ export class Sprite_Enemy extends Sprite_Battler {
   };
 
   updateStateSprite(): void {
-    this._stateIconSprite.y = -Math.round((this.bitmap!.height + 40) * 0.9);
-    if (this._stateIconSprite.y < 20 - this.y) {
-        this._stateIconSprite.y = 20 - this.y;
+    this._stateIconSprite!.y = -Math.round((this.bitmap!.height + 40) * 0.9);
+    if (this._stateIconSprite!.y < 20 - this.y) {
+        this._stateIconSprite!.y = 20 - this.y;
     }
   };
 

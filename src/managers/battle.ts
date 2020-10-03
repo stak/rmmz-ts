@@ -232,8 +232,8 @@ export class BattleManager {
   static isBusy(): boolean {
     return (
         $gameMessage.isBusy() ||
-        this._spriteset.isBusy() ||
-        this._logWindow.isBusy()
+        this._spriteset!.isBusy() ||
+        this._logWindow!.isBusy()
     );
   };
 
@@ -438,7 +438,7 @@ export class BattleManager {
     $gameParty.requestMotionRefresh();
     if (!this.isTpb()) {
         this.makeActionOrders();
-        this._logWindow.startTurn();
+        this._logWindow!.startTurn();
         this._inputting = false;
     }
   };
@@ -530,11 +530,11 @@ export class BattleManager {
   };
 
   static displayBattlerStatus(battler: Game_Battler, current: boolean): void {
-    this._logWindow.displayAutoAffectedStatus(battler);
+    this._logWindow!.displayAutoAffectedStatus(battler);
     if (current) {
-        this._logWindow.displayCurrentState(battler);
+        this._logWindow!.displayCurrentState(battler);
     }
-    this._logWindow.displayRegeneration(battler);
+    this._logWindow!.displayRegeneration(battler);
   };
 
   static updateTurnEnd(): void {
@@ -585,7 +585,7 @@ export class BattleManager {
     this._targets = targets;
     subject!.useItem(action.item());
     this._action.applyGlobal();
-    this._logWindow.startAction(subject, action, targets);
+    this._logWindow!.startAction(subject!, action, targets);
   };
 
   static updateAction(): void {
@@ -598,7 +598,7 @@ export class BattleManager {
   };
 
   static endAction(): void {
-    this._logWindow.endAction(this._subject);
+    this._logWindow!.endAction(this._subject!);
     this._phase = "turn";
     if (this._subject!.numActions() === 0) {
         this.endBattlerActions(this._subject!);
@@ -607,7 +607,7 @@ export class BattleManager {
   };
 
   static invokeAction(subject: Game_Battler, target: Game_Battler): void {
-    this._logWindow.push("pushBaseLine");
+    this._logWindow!.push("pushBaseLine");
     if (Math.random() < this._action!.itemCnt(target)) {
         this.invokeCounterAttack(subject, target);
     } else if (Math.random() < this._action!.itemMrf(target)) {
@@ -616,35 +616,35 @@ export class BattleManager {
         this.invokeNormalAction(subject, target);
     }
     subject.setLastTarget(target);
-    this._logWindow.push("popBaseLine");
+    this._logWindow!.push("popBaseLine");
   };
 
   static invokeNormalAction(subject: Game_Battler, target: Game_Battler): void {
     const realTarget = this.applySubstitute(target);
     this._action!.apply(realTarget);
-    this._logWindow.displayActionResults(subject, realTarget);
+    this._logWindow!.displayActionResults(subject, realTarget);
   };
 
   static invokeCounterAttack(subject: Game_Battler, target: Game_Battler): void {
     const action = new Game_Action(target);
     action.setAttack();
     action.apply(subject);
-    this._logWindow.displayCounter(target);
-    this._logWindow.displayActionResults(target, subject);
+    this._logWindow!.displayCounter(target);
+    this._logWindow!.displayActionResults(target, subject);
   };
 
   static invokeMagicReflection(subject: Game_Battler, target: Game_Battler): void {
     this._action!._reflectionTarget = target;
-    this._logWindow.displayReflection(target);
+    this._logWindow!.displayReflection(target);
     this._action!.apply(subject);
-    this._logWindow.displayActionResults(target, subject);
+    this._logWindow!.displayActionResults(target, subject);
   };
 
   static applySubstitute(target: Game_Battler): Game_Battler {
     if (this.checkSubstitute(target)) {
         const substitute = (target as Game_Actor | Game_Enemy).friendsUnit().substituteBattler();
         if (substitute && target !== substitute) {
-            this._logWindow.displaySubstitute(substitute, target);
+            this._logWindow!.displaySubstitute(substitute, target);
             return substitute;
         }
     }
@@ -743,7 +743,7 @@ export class BattleManager {
 
   static processAbort(): void {
     $gameParty.removeBattleStates();
-    this._logWindow.clear();
+    this._logWindow!.clear();
     this.replayBgmAndBgs();
     this.endBattle(1);
   };

@@ -50,7 +50,7 @@ export class Window_EquipStatus extends Window_StatusBase {
     }
   };
 
-  setTempActor(tempActor: Game_Actor): void {
+  setTempActor(tempActor: Game_Actor | null): void {
     if (this._tempActor !== tempActor) {
         this._tempActor = tempActor;
         this.refresh();

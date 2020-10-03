@@ -25,7 +25,7 @@ export class ColorManager {
   static textColor(n: number): HexColorString {
     const px = 96 + (n % 8) * 12 + 6;
     const py = 144 + Math.floor(n / 8) * 12 + 6;
-    return this._windowskin.getPixel(px, py);
+    return this._windowskin!.getPixel(px, py);
   };
 
   static normalColor(): HexColorString {
@@ -97,7 +97,7 @@ export class ColorManager {
   };
 
   static pendingColor(): HexColorString {
-    return this._windowskin.getPixel(120, 120);
+    return this._windowskin!.getPixel(120, 120);
   };
 
   static hpColor(actor: Game_Battler): HexColorString {

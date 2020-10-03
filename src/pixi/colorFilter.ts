@@ -21,7 +21,7 @@ export class ColorFilter extends PIXI.Filter {
 
   initialize(..._: any): void {
     // dup with constructor super()
-    PIXI.Filter.call(this, null, this._fragmentSrc());
+    PIXI.Filter.call(this, undefined, this._fragmentSrc());
     this.uniforms.hue = 0;
     this.uniforms.colorTone = [0, 0, 0, 0];
     this.uniforms.blendColor = [0, 0, 0, 0];

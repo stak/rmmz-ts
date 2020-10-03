@@ -546,6 +546,9 @@ declare namespace MZ {
       switches: Array<'' | number>;
       variables: Array<'' | number>;
       versionId: number;
+      hasEncryptedImages: boolean
+      hasEncryptedAudio: boolean
+      encryptionKey: string
   }
 
   export interface Advanced {
@@ -841,6 +844,13 @@ declare namespace MZ {
     playtime: string
     timestamp: number
   };
+
+  export type GoodsParam = [
+    itemKind: 0 | 1 | 2,
+    itemId: MZ.DataID,
+    isUniqPrice: number | boolean,
+    price: number,
+  ];
 }
 
 export { MZ };

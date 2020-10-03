@@ -38,15 +38,14 @@ type XhrError = {
   url: string
 }
 
-type GameObject = {
+type LoadedObject = {
   // only MapXXX.json object has these props
   data?: Array<number>
-  events?: GameObject
+  events?: LoadedObject
   meta?: {[key: string]: any}
   note?: string
 }
 
-// TODO: typing
 export let $dataActors: MZ.DataActor[];
 export let $dataClasses: MZ.DataClass[];
 export let $dataSkills: MZ.DataSkill[];
@@ -75,7 +74,7 @@ export let $gameParty: Game_Party;
 export let $gameTroop: Game_Troop;
 export let $gameMap: Game_Map;
 export let $gamePlayer: Game_Player;
-export let $testEvent: any;
+export let $testEvent: any; // TODO: typing
 
 // FIXME: any trick to do this like Reflection?
 function setModuleVars(name: string, value: any): void {
@@ -367,7 +366,7 @@ export class DataManager {
     return !!$dataMap;
   };
 
-  static onLoad(object: GameObject): void {
+  static onLoad(object: LoadedObject): void {
     if (this.isMapObject(object)) {
         this.extractMetadata(object);
         this.extractArrayMetadata(object.events!);
@@ -376,11 +375,11 @@ export class DataManager {
     }
   };
 
-  static isMapObject(object: GameObject): boolean {
+  static isMapObject(object: LoadedObject): boolean {
     return !!(object.data && object.events);
   };
 
-  static extractArrayMetadata(array: GameObject): void {
+  static extractArrayMetadata(array: LoadedObject): void {
     if (Array.isArray(array)) {
         for (const data of array) {
             if (data && "note" in data) {
@@ -390,7 +389,7 @@ export class DataManager {
     }
   };
 
-  static extractMetadata(data: GameObject): void {
+  static extractMetadata(data: LoadedObject): void {
     const regExp = /<([^<>:]+)(:?)([^>]*)>/g;
     data.meta = {};
     for (;;) {

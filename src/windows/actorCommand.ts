@@ -58,7 +58,7 @@ export class Window_ActorCommand extends Window_Command {
     this.addCommand(TextManager.item, "item");
   };
 
-  setup(actor: Game_Actor): void {
+  setup(actor: Game_Actor | null): void {
     this._actor = actor;
     this.refresh();
     this.selectLast();

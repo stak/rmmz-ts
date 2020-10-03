@@ -37,7 +37,7 @@ export class Window_MenuActor extends Window_MenuStatus {
     this.forceSelect($gameParty.targetActor().index() || 0);
   };
 
-  selectForItem(item: MZ.DataConsumable): void {
+  selectForItem(item: MZ.DataConsumable | null): void {
     const actor = $gameParty.menuActor();
     const action = new Game_Action(actor);
     action.setItemObject(item);

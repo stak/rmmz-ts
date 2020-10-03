@@ -34,7 +34,7 @@ export class SceneManager {
   static _smoothDeltaTime = 1;
   static _elapsedTime = 0;
 
-  static run(sceneClass: Scene_Base): void {
+  static run(sceneClass: Constructable<Scene_Base>): void {
     try {
         this.initialize();
         this.goto(sceneClass);
@@ -285,7 +285,7 @@ export class SceneManager {
 
   static onSceneTerminate(): void {
     this._previousScene = this._scene;
-    this._previousClass = this._scene.constructor;
+    this._previousClass = this._scene!.constructor;
     Graphics.setStage(null);
   };
 
@@ -313,18 +313,18 @@ export class SceneManager {
   };
 
   static isCurrentSceneBusy(): boolean {
-    return this._scene && this._scene.isBusy();
+    return !!this._scene && this._scene.isBusy();
   };
 
-  static isNextScene(sceneClass: Scene_Base): boolean {
-    return this._nextScene && this._nextScene.constructor === sceneClass;
+  static isNextScene(sceneClass: Constructable<Scene_Base>): boolean {
+    return !!this._nextScene && this._nextScene.constructor === sceneClass;
   };
 
-  static isPreviousScene(sceneClass: Scene_Base): boolean {
+  static isPreviousScene(sceneClass: Constructable<Scene_Base>): boolean {
     return this._previousClass === sceneClass;
   };
 
-  static goto(sceneClass: Scene_Base): void {
+  static goto(sceneClass: Constructable<Scene_Base> | null): void {
     if (sceneClass) {
         this._nextScene = new sceneClass();
     }
@@ -333,14 +333,14 @@ export class SceneManager {
     }
   };
 
-  static push(sceneClass: Scene_Base): void {
-    this._stack.push(this._scene.constructor);
+  static push(sceneClass: Constructable<Scene_Base>): void {
+    this._stack.push(this._scene!.constructor);
     this.goto(sceneClass);
   };
 
   static pop(): void {
     if (this._stack.length > 0) {
-        this.goto(this._stack.pop());
+        this.goto(this._stack.pop() as Constructable<Scene_Base>);
     } else {
         this.exit();
     }
@@ -360,11 +360,11 @@ export class SceneManager {
   };
 
   static prepareNextScene(..._: any): void {
-    this._nextScene.prepare(...arguments);
+    (this._nextScene as any).prepare(...arguments);
   };
 
   static snap(): Bitmap {
-    return Bitmap.snap(this._scene);
+    return Bitmap.snap(this._scene!);
   };
 
   static snapForBackground(): void {
@@ -374,7 +374,7 @@ export class SceneManager {
     this._backgroundBitmap = this.snap();
   };
 
-  static backgroundBitmap(): Bitmap {
+  static backgroundBitmap(): Bitmap | null {
     return this._backgroundBitmap;
   };
 

@@ -4,13 +4,6 @@ import { $dataWeapons, $dataArmors, $dataItems } from '../managers';
 import { Rectangle } from '../pixi';
 import { MZ } from '../MZ';
 
-type GoodsParam = [
-  itemKind: 0 | 1 | 2,
-  itemId: MZ.DataID,
-  isUniqPrice: number | boolean,
-  price: number,
-];
-
 //-----------------------------------------------------------------------------
 // Window_ShopBuy
 //
@@ -18,7 +11,7 @@ type GoodsParam = [
 
 export class Window_ShopBuy extends Window_Selectable {
   _money = 0
-  _shopGoods?: GoodsParam[]
+  _shopGoods?: MZ.GoodsParam[]
   _data?: MZ.DataItemBase[]
   _price?: number[]
   _statusWindow?: Window_ShopStatus
@@ -38,7 +31,7 @@ export class Window_ShopBuy extends Window_Selectable {
     this._money = 0;
   };
 
-  setupGoods(shopGoods: GoodsParam[]): void {
+  setupGoods(shopGoods: MZ.GoodsParam[]): void {
     this._shopGoods = shopGoods;
     this.refresh();
     this.select(0);
@@ -92,7 +85,7 @@ export class Window_ShopBuy extends Window_Selectable {
     }
   };
 
-  goodsToItem(goods: GoodsParam): MZ.DataItemBase | null {
+  goodsToItem(goods: MZ.GoodsParam): MZ.DataItemBase | null {
     switch (goods[0]) {
         case 0:
             return $dataItems[goods[1]];

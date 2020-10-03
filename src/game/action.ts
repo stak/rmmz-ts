@@ -121,7 +121,7 @@ export class Game_Action {
     this._item.setObject($dataItems[itemId]);
   };
 
-  setItemObject(object: MZ.DataConsumable): void {
+  setItemObject(object: MZ.DataConsumable | null): void {
     this._item.setObject(object);
   };
 
@@ -299,7 +299,7 @@ export class Game_Action {
     return speed;
   };
 
-  makeTargets(): (Game_Battler | null)[] {
+  makeTargets(): Game_Battler[] {
     const targets = [];
     if (!this._forcing && this.subject().isConfused()) {
         targets.push(this.confusionTarget());

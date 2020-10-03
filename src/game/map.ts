@@ -15,7 +15,7 @@ import { MZ } from '../MZ';
 // determination functions.
 
 export class Game_Map {
-  _interpreter: Game_Interpreter
+  _interpreter: Game_Interpreter = new Game_Interpreter()
   _mapId: MZ.MapID = 0;
   _tilesetId: MZ.TilesetID = 0;
   _events: Game_Event[] = [];

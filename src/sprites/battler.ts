@@ -31,7 +31,7 @@ export class Sprite_Battler extends Sprite_Clickable {
     this.initialize(...arguments);
   }
 
-  initialize(..._: any)
+  initialize(..._: any): void
   initialize(battler?: Game_Battler): void {
     super.initialize();
     this.initMembers();
@@ -171,7 +171,7 @@ export class Sprite_Battler extends Sprite_Clickable {
         sprite.x = this.x + this.damageOffsetX();
         sprite.y = this.y + this.damageOffsetY();
     }
-    sprite.setup(this._battler);
+    sprite.setup(this._battler!);
     this._damages.push(sprite);
     this.parent.addChild(sprite);
   };

@@ -12,7 +12,7 @@ import { MZ } from '../MZ';
 // The game object class for a troop and the battle-related data.
 
 export class Game_Troop extends Game_Unit {
-  _interpreter: Game_Interpreter
+  _interpreter: Game_Interpreter = new Game_Interpreter()
   _troopId: MZ.TroopID = 0;
   _eventFlags: {[key: number]: boolean} = {};
   _enemies: Game_Enemy[] = [];

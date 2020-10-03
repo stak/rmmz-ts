@@ -21,7 +21,7 @@ export class Game_Event extends Game_Character {
   _originalDirection: MZ.MoveDirection = 2
   _prelockDirection: MZ.MoveDirection = 0
   _locked: boolean = false
-  _interpreter: Game_Interpreter | null
+  _interpreter: Game_Interpreter | null = null
 
   constructor(mapId: MZ.MapID, eventId: MZ.ID)
   constructor(thisClass: Constructable<Game_Event>)

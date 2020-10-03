@@ -31,7 +31,7 @@ export class Window_SkillList extends Window_Selectable {
     this._data = [];
   };
 
-  setActor(actor: Game_Actor): void {
+  setActor(actor: Game_Actor | null): void {
     if (this._actor !== actor) {
         this._actor = actor;
         this.refresh();
