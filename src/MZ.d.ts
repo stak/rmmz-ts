@@ -853,6 +853,26 @@ declare namespace MZ {
   ];
 
   export type LoadingState = "none" | "loading" | "loaded" | "error"
+
+  export type MotionType =
+    "walk" |
+    "wait" |
+    "chant" |
+    "guard" |
+    "damage" |
+    "evade" |
+    "thrust" |
+    "swing" |
+    "missile" |
+    "skill" |
+    "spell" |
+    "item" |
+    "escape" |
+    "victory" |
+    "dying" |
+    "abnormal" |
+    "sleep" |
+    "dead"
 }
 
 export { MZ };

@@ -4,26 +4,8 @@ import { Sprite_StateOverlay } from '.';
 import { Sprite_Weapon } from '.';
 import { Game_Actor, Game_Battler } from '../game';
 import { ImageManager, BattleManager } from '../managers';
+import { MZ } from '../MZ';
 
-type MotionType =
-  "walk" |
-  "wait" |
-  "chant" |
-  "guard" |
-  "damage" |
-  "evade" |
-  "thrust" |
-  "swing" |
-  "missile" |
-  "skill" |
-  "spell" |
-  "item" |
-  "escape" |
-  "victory" |
-  "dying" |
-  "abnormal" |
-  "sleep" |
-  "dead"
 
 //-----------------------------------------------------------------------------
 // Sprite_Actor
@@ -164,7 +146,7 @@ export class Sprite_Actor extends Sprite_Battler {
 
   setupMotion(): void {
     if (this._actor!.isMotionRequested()) {
-        this.startMotion(this._actor!.motionType() as MotionType);
+        this.startMotion(this._actor!.motionType()!);
         this._actor!.clearMotion();
     }
   };
@@ -176,7 +158,7 @@ export class Sprite_Actor extends Sprite_Battler {
     }
   };
 
-  startMotion(motionType: MotionType): void {
+  startMotion(motionType: MZ.MotionType): void {
     const newMotion = Sprite_Actor.MOTIONS[motionType];
     if (this._motion !== newMotion) {
         this._motion = newMotion;
