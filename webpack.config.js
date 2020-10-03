@@ -42,12 +42,21 @@ module.exports = {
 
     new CircularDependencyPlugin({
       onDetected({ module: webpackModuleRecord, paths, compilation }) {
-        // exclude rules
-        if (paths.some(path => path.includes('node_modules'))) return;
-        if (paths.some(path => path.includes('/index.ts'))) {
-          if (paths.length === 3 && paths[0] === paths[2]) {
-            return;
+        if (paths.some(path => path.includes('node_modules'))) {
+          // ignore node_modules
+          return;
+        }
+        if (paths.every((path, i) => {
+          const nextPath = paths[i + 1];
+          if (!nextPath) return true;
+          if (path.split('/').pop() === "index.ts") {
+            return nextPath.slice(0, nextPath.lastIndexOf('/')) === path.slice(0, path.lastIndexOf('/'));
+          } else {
+            return nextPath.split('/').pop() === "index.ts";
           }
+        })) {
+          // ignore internal import pattern
+          return;
         }
         compilation.warnings.push(new Error(paths.join(' -> ')))
       },
