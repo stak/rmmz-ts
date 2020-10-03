@@ -872,7 +872,16 @@ declare namespace MZ {
     "dying" |
     "abnormal" |
     "sleep" |
-    "dead"
+    "dead";
+  
+  export type EffectType =
+    "appear" |
+    "disappear" |
+    "whiten" |
+    "blink" |
+    "collapse" |
+    "bossCollapse" |
+    "instantCollapse";
 }
 
 export { MZ };

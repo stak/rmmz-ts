@@ -3,15 +3,7 @@ import { Sprite_StateIcon } from '.';
 import { $gameSystem } from '../managers';
 import { Game_Enemy } from '../game';
 import { ImageManager, SoundManager } from '../managers';
-
-type EffectType =
-  "appear" |
-  "disappear" |
-  "whiten" |
-  "blink" |
-  "collapse" |
-  "bossCollapse" |
-  "instantCollapse";
+import { MZ } from '../MZ';
 
 //-----------------------------------------------------------------------------
 // Sprite_Enemy
@@ -23,7 +15,7 @@ export class Sprite_Enemy extends Sprite_Battler {
   _appeared = false;
   _battlerName = "";
   _battlerHue = 0;
-  _effectType: EffectType | null = null;
+  _effectType: MZ.EffectType | null = null;
   _effectDuration = 0;
   _shake = 0;
   _stateIconSprite?: Sprite_StateIcon
@@ -134,7 +126,7 @@ export class Sprite_Enemy extends Sprite_Battler {
 
   setupEffect(): void {
     if (this._appeared && this._enemy!.isEffectRequested()) {
-        this.startEffect(this._enemy!.effectType() as EffectType);
+        this.startEffect(this._enemy!.effectType()!);
         this._enemy!.clearEffect();
     }
     if (!this._appeared && this._enemy!.isAlive()) {
@@ -144,7 +136,7 @@ export class Sprite_Enemy extends Sprite_Battler {
     }
   };
 
-  startEffect(effectType: EffectType): void {
+  startEffect(effectType: MZ.EffectType): void {
     this._effectType = effectType;
     switch (this._effectType) {
         case "appear":

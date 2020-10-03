@@ -18,7 +18,7 @@ export class Game_Battler extends Game_BattlerBase {
   _actionState = "";
   _lastTargetIndex = 0;
   _damagePopup = false;
-  _effectType: string | null = null;
+  _effectType: MZ.EffectType | null = null;
   _motionType: MZ.MotionType | null = null;
   _weaponImageId = 0;
   _motionRefresh = false;
@@ -82,7 +82,7 @@ export class Game_Battler extends Game_BattlerBase {
     this._motionRefresh = false;
   };
 
-  requestEffect(effectType: string): void {
+  requestEffect(effectType: MZ.EffectType): void {
     this._effectType = effectType;
   };
 
@@ -126,7 +126,7 @@ export class Game_Battler extends Game_BattlerBase {
     return this._selected;
   };
 
-  effectType(): string | null {
+  effectType(): MZ.EffectType | null {
     return this._effectType;
   };
 
