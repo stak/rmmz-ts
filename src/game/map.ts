@@ -8,6 +8,11 @@ import { $gamePlayer, $gameSwitches, $gameSystem } from '../managers';
 import { $dataMap, $dataCommonEvents, $dataTilesets } from '../managers';
 import { MZ } from '../MZ';
 
+interface _Window extends Window {  
+  $testEvent: MZ.EventCommand[] | null
+}  
+declare const window: _Window;  
+
 //-----------------------------------------------------------------------------
 // Game_Map
 //

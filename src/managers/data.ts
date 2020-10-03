@@ -74,7 +74,7 @@ export let $gameParty: Game_Party;
 export let $gameTroop: Game_Troop;
 export let $gameMap: Game_Map;
 export let $gamePlayer: Game_Player;
-export let $testEvent: any; // TODO: typing
+export let $testEvent: MZ.EventCommand[]
 
 // FIXME: any trick to do this like Reflection?
 function setModuleVars(name: string, value: any): void {
