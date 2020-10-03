@@ -3,7 +3,7 @@ import { Bitmap } from '../pixi';
 import { Game_Battler } from '../game';
 
 type HexColorString = string; // #rrggbb
-type CssColorString = string; // rgba(r, g, b, a)
+type RGBAColorString = string; // rgba(r, g, b, a)
 type DamageColorType = 0 | 1 | 2 | 3;
 
 //-----------------------------------------------------------------------------
@@ -145,23 +145,23 @@ export class ColorManager {
     }
   };
 
-  static outlineColor(): CssColorString {
+  static outlineColor(): RGBAColorString {
     return "rgba(0, 0, 0, 0.6)";
   };
 
-  static dimColor1(): CssColorString {
+  static dimColor1(): RGBAColorString {
     return "rgba(0, 0, 0, 0.6)";
   };
 
-  static dimColor2(): CssColorString {
+  static dimColor2(): RGBAColorString {
     return "rgba(0, 0, 0, 0)";
   };
 
-  static itemBackColor1(): CssColorString {
+  static itemBackColor1(): RGBAColorString {
     return "rgba(32, 32, 32, 0.5)";
   };
 
-  static itemBackColor2(): CssColorString {
+  static itemBackColor2(): RGBAColorString {
     return "rgba(0, 0, 0, 0.5)";
   };
 }
