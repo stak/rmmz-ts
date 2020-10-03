@@ -17,8 +17,8 @@ export { Game_CharacterBase } from './characterBase';
     export { Game_Player } from './player';
     export { Game_Event } from './event';
     export { Game_Follower } from './follower';
-    export { Game_Followers } from './followers';
     export { Game_Vehicle } from './vehicle';
+export { Game_Followers } from './followers';
 
 // Common
 export { Game_CommonEvent } from './commonEvent';

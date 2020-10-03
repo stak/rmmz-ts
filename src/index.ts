@@ -1,4 +1,4 @@
-import './prototype.js';
+import './prototype';
 import * as Dom from './dom';
 import * as PixiComponents from './pixi';
 import * as Managers from './managers';
@@ -7,9 +7,9 @@ import * as Scenes from './scenes';
 import * as Sprites from './sprites';
 import * as Windows from './windows';
 
-function assignToGlobal(module: object): void {
+function toGlobal(module: {[key: string]: unknown}): void {
   for (let k of Object.keys(module)) {
-    global[k] = module[k];
+    (global as any)[k] = module[k];
   }
 }
 
@@ -21,4 +21,4 @@ function assignToGlobal(module: object): void {
   Scenes,
   Sprites,
   Windows
-].map(m => assignToGlobal(m));
+].map(toGlobal);
