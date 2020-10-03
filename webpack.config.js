@@ -55,6 +55,7 @@ module.exports = (env, {mode}) => {
         '.ts', '.js',
       ],
     },
+    devtool: DEV ? "eval-cheap-module-source-map": "source-map",
     performance: {
       // 1 MB
       maxAssetSize: 1000000,
