@@ -47,7 +47,7 @@ export class Spriteset_Map extends Spriteset_Base {
   };
 
   loadSystemImages(): void {
-    Spriteset_Base.prototype.loadSystemImages.call(this);
+    super.loadSystemImages();
     ImageManager.loadSystem("Balloon");
     ImageManager.loadSystem("Shadow1");
   };

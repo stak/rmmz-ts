@@ -94,7 +94,7 @@ export class Window_NumberInput extends Window_Selectable {
   };
 
   itemRect(index: number): Rectangle {
-    const rect = Window_Selectable.prototype.itemRect.call(this, index);
+    const rect = super.itemRect(index);
     const innerMargin = this.innerWidth - this.maxCols() * this.itemWidth();
     rect.x += innerMargin / 2;
     return rect;

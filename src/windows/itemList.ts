@@ -130,6 +130,6 @@ export class Window_ItemList extends Window_Selectable {
 
   refresh(): void {
     this.makeItemList();
-    Window_Selectable.prototype.refresh.call(this);
+    super.refresh();
   };
 }

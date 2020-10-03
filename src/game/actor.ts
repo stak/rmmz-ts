@@ -502,7 +502,7 @@ export class Game_Actor extends Game_Battler {
   };
 
   paramPlus(paramId: number): number {
-    let value = Game_Battler.prototype.paramPlus.call(this, paramId);
+    let value = super.paramPlus(paramId);
     for (const item of this.equips()) {
         if (item) {
             value += item.params[paramId];

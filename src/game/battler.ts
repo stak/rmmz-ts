@@ -360,7 +360,7 @@ export class Game_Battler extends Game_BattlerBase {
   };
 
   refresh(): void {
-    Game_BattlerBase.prototype.refresh.call(this);
+    super.refresh();
     if (this.hp === 0) {
         this.addState(this.deathStateId());
     } else {
@@ -393,7 +393,7 @@ export class Game_Battler extends Game_BattlerBase {
   };
 
   onRestrict(): void {
-    Game_BattlerBase.prototype.onRestrict.call(this);
+    super.onRestrict();
     this.clearTpbChargeTime();
     this.clearActions();
     for (const state of this.states()) {

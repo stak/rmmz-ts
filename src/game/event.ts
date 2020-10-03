@@ -346,7 +346,7 @@ export class Game_Event extends Game_Character {
   };
 
   update(): void {
-    Game_Character.prototype.update.call(this);
+    super.update();
     this.checkEventTriggerAuto();
     this.updateParallel();
   };

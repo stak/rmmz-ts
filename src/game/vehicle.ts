@@ -113,7 +113,7 @@ export class Game_Vehicle extends Game_Character {
 
   pos(x: number, y: number): boolean {
     if (this._mapId === $gameMap.mapId()) {
-        return Game_Character.prototype.pos.call(this, x, y);
+        return super.pos(x, y);
     } else {
         return false;
     }
@@ -187,7 +187,7 @@ export class Game_Vehicle extends Game_Character {
   };
 
   update(): void {
-    Game_Character.prototype.update.call(this);
+    super.update();
     if (this.isAirship()) {
         this.updateAirship();
     }

@@ -28,7 +28,7 @@ export class TilemapRenderer extends PIXI.ObjectRenderer {
   };
 
   destroy(): void {
-    PIXI.ObjectRenderer.prototype.destroy.call(this);
+    super.destroy();
     this._destroyInternalTextures();
     (this._shader as any).destroy();
     this._shader = null;
