@@ -1,4 +1,4 @@
-import './prototype.js';
+import './prototype';
 import * as Dom from './dom';
 import * as PixiComponents from './pixi';
 import * as Managers from './managers';

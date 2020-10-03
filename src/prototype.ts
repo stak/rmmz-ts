@@ -105,7 +105,7 @@ Math.randomInt = function(max) {
 * @returns {number} A number in the range (min, max).
 */
 Number.prototype.clamp = function(min, max) {
-  return Math.min(Math.max(this, min), max);
+  return Math.min(Math.max(this as number, min), max);
 };
 
 /**
@@ -116,7 +116,7 @@ Number.prototype.clamp = function(min, max) {
 * @returns {number} A modulo value.
 */
 Number.prototype.mod = function(n) {
-  return ((this % n) + n) % n;
+  return ((this as number % n) + n) % n;
 };
 
 /**
