@@ -1,4 +1,5 @@
 import { Utils } from '../dom';
+import { MZ } from '../MZ';
 
 //-----------------------------------------------------------------------------
 // FontManager
@@ -11,7 +12,7 @@ export class FontManager {
   }
 
   static _urls: {[key: string]: string} = {};
-  static _states: {[key: string]: string} = {};
+  static _states: {[key: string]: MZ.LoadingState} = {};
 
   static load(family: string, filename: string): void {
     if (this._states[family] !== "loaded") {

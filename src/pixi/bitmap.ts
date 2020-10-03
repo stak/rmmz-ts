@@ -1,8 +1,7 @@
 import * as PIXI from 'pixi.js';
 import { Rectangle, Stage } from '.';
 import { Graphics, Utils } from '../dom';
-
-type LoadingState = "none" | "loading" | "loaded" | "error"
+import { MZ } from '../MZ';
 
 //-----------------------------------------------------------------------------
 /**
@@ -21,7 +20,7 @@ export class Bitmap {
   _paintOpacity = 255
   _smooth = true
   _loadListeners: Array<(self: Bitmap) => void> = []
-  _loadingState: LoadingState = "none"
+  _loadingState: MZ.LoadingState = "none"
 
   fontFace = "sans-serif"
   fontSize = 16

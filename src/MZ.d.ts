@@ -851,6 +851,8 @@ declare namespace MZ {
     isUniqPrice: number | boolean,
     price: number,
   ];
+
+  export type LoadingState = "none" | "loading" | "loaded" | "error"
 }
 
 export { MZ };
